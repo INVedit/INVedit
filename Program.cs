@@ -24,12 +24,6 @@ namespace INVedit
 				if (arg.Length > 0 && arg[0] == '-') {
 				switch (args[0]) {
 					case "-update":
-						if (File.Exists("NBT.dll")) {
-							while (true) {
-								try { File.Delete("NBT.dll"); break; } catch {  }
-								Thread.Sleep(500);
-							}
-						}
 						if (File.Exists("_INVedit.exe")) {
 							while (true) {
 								try { File.Delete("INVedit.exe"); break; } catch {  }

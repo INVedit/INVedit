@@ -5,3 +5,4 @@ using System.Reflection;
 [assembly: AssemblyProduct("INVedit")]
 [assembly: AssemblyCopyright("Copyright 2012")]
 [assembly: AssemblyVersion("0.9.18")]
+[assembly: AssemblyDescriptionAttribute("Minecraft Inventory Editor")]
