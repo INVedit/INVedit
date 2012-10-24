@@ -18,6 +18,22 @@
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Kelsey\Desktop\publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +67,18 @@
     <Optimize>true</Optimize>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2CFCC10C6677DFD6EC3C532B29980E78EDBE6975</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>INVedit_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
     <Reference Include="System" />
@@ -61,64 +89,105 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutForm.cs" />
-    <Compile Include="AboutForm.Designer.cs">
+    <Compile Include="forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
-    <Compile Include="DeleteItemSlot.cs" />
-    <Compile Include="EditForm.cs" />
-    <Compile Include="EditForm.Designer.cs">
+    <Compile Include="models\Data.cs" />
+    <Compile Include="components\DeleteItemSlot.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnchantForm.cs" />
-    <Compile Include="EnchantForm.Designer.cs">
+    <Compile Include="forms\EnchantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\EnchantForm.Designer.cs">
       <DependentUpon>EnchantForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.cs" />
-    <Compile Include="ItemSlot.cs" />
-    <Compile Include="MainForm.cs" />
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="models\Inventory.cs" />
+    <Compile Include="components\ItemSlot.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NBT\NbtReader.cs" />
-    <Compile Include="NBT\NbtTag.cs" />
-    <Compile Include="NBT\NbtTagCompound.cs" />
-    <Compile Include="NBT\NbtTagList.cs" />
-    <Compile Include="NBT\NbtTagType.cs" />
-    <Compile Include="NBT\NbtTagValue.cs" />
-    <Compile Include="NBT\NbtWriter.cs" />
-    <Compile Include="Page.cs" />
-    <Compile Include="Platform.cs" />
+    <Compile Include="utilities\NBT\NbtReader.cs" />
+    <Compile Include="utilities\NBT\NbtTag.cs" />
+    <Compile Include="utilities\NBT\NbtTagCompound.cs" />
+    <Compile Include="utilities\NBT\NbtTagList.cs" />
+    <Compile Include="utilities\NBT\NbtTagType.cs" />
+    <Compile Include="utilities\NBT\NbtTagValue.cs" />
+    <Compile Include="utilities\NBT\NbtWriter.cs" />
+    <Compile Include="components\Page.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="models\Platform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Utility\BigEndianReader.cs" />
-    <Compile Include="Utility\BigEndianWriter.cs" />
-    <EmbeddedResource Include="AboutForm.resx">
+    <Compile Include="models\Item.cs" />
+    <Compile Include="utilities\BigEndian\BigEndianReader.cs" />
+    <Compile Include="utilities\BigEndian\BigEndianUtilities.cs" />
+    <Compile Include="utilities\BigEndian\BigEndianWriter.cs" />
+    <EmbeddedResource Include="forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditForm.resx">
+    <EmbeddedResource Include="forms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnchantForm.resx">
+    <EmbeddedResource Include="forms\EnchantForm.resx">
       <DependentUpon>EnchantForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="include" />
-    <Folder Include="NBT" />
-    <Folder Include="Utility" />
+    <Content Include="icon.ico" />
+    <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\items.png" />
     <None Include="include\items.txt" />
+    <None Include="include\Quickstart.pdf" />
     <None Include="include\special.png" />
     <None Include="include\terrain.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)\include\*.*" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
