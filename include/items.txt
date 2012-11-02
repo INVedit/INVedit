@@ -412,6 +412,9 @@
  373  Harming                 special.png  10,14  8204
  373  Harming                 special.png  10,14  8268
  373  Harming_II              special.png  10,14  8236
+ 373  Invisiblity             special.png  10,14  8270
+ 373  Night_Vision            special.png  10,14  8262
+
 # Unbrewable:
  373  Regeneration_II_(1:00)  special.png  2,14   8289
  373  Swiftness_II_(4:00)     special.png  3,14   8290
