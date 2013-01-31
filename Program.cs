@@ -14,6 +14,8 @@ namespace INVedit
 {
 	class Program
 	{
+
+
 		[STAThread]
 		static void Main(string[] args)
 		{

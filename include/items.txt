@@ -1,542 +1,621 @@
 :version 34
-:mc-version Minecraft 1.4
+:mc-version Minecraft Snapshot 13w04a
 
-#            Blocks
-# ID  NAME                   FILE         CORDS   DAMAGE
-   1  Stone                  terrain.png  1,0
-   2  Grass                  terrain.png  3,0
-   3  Dirt                   terrain.png  2,0
-   4  Cobblestone            terrain.png  0,1
-   5  Oak_Wooden_Planks      terrain.png  4,0    0
-   5  Spruce_Wooden_Planks   terrain.png  6,12   1
-   5  Birch_Wooden_Planks    terrain.png  6,13   2
-   5  Jungle_Wooden_Planks   terrain.png  7,12   3
-   6  Oak_Sapling            terrain.png  15,0   0
-   6  Spruce_Sapling         terrain.png  15,3   1
-   6  Birch_Sapling          terrain.png  15,4   2
-   6  Jungle_Sapling         terrain.png  14,1   3
-   7  Bedrock                terrain.png  1,1
-   8  Water                  terrain.png  15,13
-   9  Still_Water            terrain.png  15,13
-  10  Lava                   terrain.png  15,15
-  11  Still_Lava             terrain.png  15,15
-  12  Sand                   terrain.png  2,1
-  13  Gravel                 terrain.png  3,1
-  14  Gold_Ore               terrain.png  0,2
-  15  Iron_Ore               terrain.png  1,2
-  16  Coal_Ore               terrain.png  2,2
-  17  Oak_Wood               terrain.png  4,1    0
-  17  Dark_Wood              terrain.png  4,7    1
-  17  Birch_Wood             terrain.png  5,7    2
-  17  Jungle_Wood            terrain.png  9,9    3
-  18  Oak_Leaves             special.png  15,0   0
-  18  Dark_Leaves            special.png  14,1   1
-  18  Birch_Leaves           special.png  14,2   2
-  18  Jungle_Leaves          special.png  14,3   3
-  19  Sponge                 terrain.png  0,3
-  20  Glass                  terrain.png  1,3
-  21  Lapis_Lazuli_Ore       terrain.png  0,10
-  22  Lapis_Lazuli_Block     terrain.png  0,9
-  23  Dispenser              terrain.png  14,2
-  24  Sandstone              terrain.png  0,12   0
-  24  Chiseled_Sandstone     terrain.png  5,14   1
-  24  Smooth_Sandstone       terrain.png  6,14   2
-  25  Note_Block             terrain.png  10,4
-  26  Bed_Block              terrain.png  6,8
-  27  Powered_Rail           terrain.png  3,10
-  28  Detector_Rail          terrain.png  3,12
-  29  Sticky_Piston          terrain.png  10,6
-  30  Cobweb                 terrain.png  11,0
-  31  Dead_Bush              terrain.png  7,3    0
-  31  Tall_Grass             special.png  15,0   1
-  31  Fern                   special.png  15,1   2
-  32  Dead_Bush              terrain.png  7,3
-  33  Piston                 terrain.png  11,6
-  34  Piston_(head)          terrain.png  11,6
-  35  Wool                   terrain.png  0,4    0
-  35  Orange_Wool            terrain.png  2,13   1
-  35  Magenta_Wool           terrain.png  2,12   2
-  35  Light_Blue_Wool        terrain.png  2,11   3
-  35  Yellow_Wool            terrain.png  2,10   4
-  35  Lime_Wool              terrain.png  2,9    5
-  35  Pink_Wool              terrain.png  2,8    6
-  35  Gray_Wool              terrain.png  2,7    7
-  35  Light_Gray_Wool        terrain.png  1,14   8
-  35  Cyan_Wool              terrain.png  1,13   9
-  35  Purple_Wool            terrain.png  1,12   10
-  35  Blue_Wool              terrain.png  1,11   11
-  35  Brown_Wool             terrain.png  1,10   12
-  35  Green_Wool             terrain.png  1,9    13
-  35  Red_Wool               terrain.png  1,8    14
-  35  Black_Wool             terrain.png  1,7    15
-  37  Flower                 terrain.png  13,0
-  38  Rose                   terrain.png  12,0
-  39  Brown_Mushroom         terrain.png  13,1
-  40  Red_Mushroom           terrain.png  12,1
-  41  Block_of_Gold          terrain.png  7,1
-  42  Block_of_Iron          terrain.png  6,1
-  43  Double_Stone_Slab      terrain.png  5,0    0
-  43  Double_Sandstone_Slab  terrain.png  0,12   1
-  43  Double_Wooden_Slab     terrain.png  4,0    2
-  43  Double_Stone_Slab      terrain.png  0,1    3
-  44  Stone_Slab             special.png  2,2    0
-  44  Sandstone_Slab         special.png  8,0    1
-  44  Wooden_Slab            special.png  3,0    2
-  44  Stone_Slab             special.png  1,0    3
-  44  Brick_Slab             special.png  0,0    4
-  44  Stone_Brick_Slab       special.png  2,0    5
-  45  Bricks                 terrain.png  7,0
-  46  TNT                    terrain.png  8,0
-  47  Bookshelf              terrain.png  3,2
-  48  Moss_Stone             terrain.png  4,2
-  49  Obsidian               terrain.png  5,2
-  50  Torch                  terrain.png  0,5
-  51  Fire                   special.png  0,5
-  52  Monster_Spawner        terrain.png  1,4
-  53  Oak_Wood_Stair         special.png  3,1
-  54  Chest                  special.png  0,6
-  55  Redstone_Dust          terrain.png  4,5
-  56  Diamond_Ore            terrain.png  2,3
-  57  Block_of_Diamond       terrain.png  8,1
-  58  Workbench              terrain.png  12,3   (x1)
-  59  Crops                  terrain.png  15,5
-  60  Farmland               terrain.png  7,5
-  61  Furnace                terrain.png  12,2
-  62  Lit_Furnace            terrain.png  13,3
-  63  Sign_Block             terrain.png  0,0
-  64  Wooden_Door_Block      terrain.png  1,6
-  65  Ladder                 terrain.png  3,5
-  66  Rail                   terrain.png  0,8
-  67  Stone_Stairs           special.png  1,1
-  68  Wall_Sign              terrain.png  4,0
-  69  Lever                  terrain.png  0,6
-  70  Stone_Pressure_Plate   special.png  2,4
-  71  Iron_Door_Block        terrain.png  2,6
-  72  Wooden_Pressure_Plate  special.png  3,4
-  73  Redstone_Ore           terrain.png  3,3
-  74  Glowing_Redstone_Ore   terrain.png  3,3
-  75  Redstone_Torch_(off)   terrain.png  3,7
-  76  Redstone_Torch         terrain.png  3,6
-  77  Stone_Button           special.png  2,3
-  78  Snow_Layer             special.png  1,4
-  79  Ice                    terrain.png  3,4
-  80  Snow                   terrain.png  2,4
-  81  Cactus                 terrain.png  6,4
-  82  Clay                   terrain.png  8,4
-  83  Sugar_cane             terrain.png  9,4
-  84  Jukebox                terrain.png  10,4
-  85  Fence                  special.png  3,2
-  86  Pumpkin                terrain.png  7,7
-  87  Netherrack             terrain.png  7,6
-  88  Soul_Sand              terrain.png  8,6
-  89  Glowstone              terrain.png  9,6
-  90  Portal                 special.png  1,5
-  91  Jack-o'-lantern        terrain.png  8,7
-  92  Cake                   special.png  0,4
-  93  Repeater_Block_(off)   terrain.png  3,8
-  94  Repeater_Block         terrain.png  3,9
-  95  Locked_Chest           special.png  0,2
-  96  Trapdoor               terrain.png  4,5
-  97  Silverfish_Block       terrain.png  1,0
-  98  Stone_Brick            terrain.png  6,3    0
-  98  Mossy_Stone_Brick      terrain.png  4,6    1
-  98  Cracked_Stone_Brick    terrain.png  5,6    2
-  98  Chiseled_Stone_Brick   terrain.png  5,13   3
-  99  Brown_Mushroom_Block   terrain.png  13,7
- 100  Red_Mushroom_Block     terrain.png  14,7
- 101  Iron_Bars              terrain.png  5,5
- 102  Glass_Pane             special.png  1,3
- 103  Melon                  terrain.png  8,8
- 104  Pumpkin_Stem           special.png  15,4
- 105  Melon_Stem             special.png  15,4
- 106  Vines                  special.png  15,2
- 107  Fence_Gate             special.png  4,3
- 108  Brick_Stairs           special.png  0,1
- 109  Stone_Brick_Stairs     special.png  2,1
- 110  Mycelium               terrain.png  13,4
- 111  Lily_Pad               special.png  15,3
- 112  Nether_Brick           terrain.png  0,14
- 113  Nether_Brick_Fence     special.png  7,2
- 114  Nether_Brick_Stairs    special.png  7,1
- 115  Nether_Wart            terrain.png  2,14
- 116  Enchantment_Table      terrain.png  6,11   (x1)
- 117  Brewing_Stand          terrain.png  13,9
- 118  Cauldron               terrain.png  10,9
- 119  End_Portal             special.png  2,5
- 120  End_Portal_Frame       terrain.png  15,9
- 121  End_Stone              terrain.png  15,10
- 122  Dragon_Egg             special.png  0,7
- 123  Redstone_Lamp          terrain.png  3,13
- 124  Redstone_Lamp_(on)     terrain.png  4,13
- 125  Oak_Wooden_D._Slab     terrain.png  4,0    0
- 125  Spruce_Wooden_D._Slab  terrain.png  6,12   1
- 125  Birch_Wooden_D._Slab   terrain.png  6,13   2
- 125  Jungle_Wooden_D._Slab  terrain.png  7,12   3
- 126  Oak_Wooden_Slab        special.png  3,0    0
- 126  Spruce_Wooden_Slab     special.png  4,0    1
- 126  Birch_Wooden_Slab      special.png  5,0    2
- 126  Jungle_Wooden_Slab     special.png  6,0    3
- 127  Cocoa_Plant            special.png  15,5
- 128  Sandstone_Stairs       special.png  8,1
- 129  Emerald_Ore            terrain.png  11,10
- 130  Ender_Chest            special.png  1,6
- 131  Tripwire_Hook          terrain.png  12,10
- 132  Tripwire               terrain.png  5,11
- 133  Block_of_Emerald       terrain.png  9,1
- 134  Spruce_Wood_Stairs     special.png  4,1
- 135  Birch_Wood_Stairs      special.png  5,1
- 136  Jungle_Wood_Stairs     special.png  6,1
- 137  Command_Block          terrain.png  8,11
- 138  Beacon                 special.png  2,6
- 139  Cobblestone_Wall       special.png  1,2    0
- 140  Moss_Stone_Wall        special.png  0,2    1
- 141  Flower_Pot             terrain.png  9,11
- 142  Carrots                terrain.png  11,12
- 143  Potatoes               terrain.png  12,12
- 144  Wooden_Button          special.png  3,3
- 145  Head                     items.png  0,14
- 146  Anvil                  special.png  3,6    0
- 146  Slightly_Damaged_Anvil special.png  4,6    1
- 146  Very_Damaged_Anvil     special.png  5,6    2
 
-#            Items
-# ID  NAME                   FILE       CORDS  DAMAGE
- 256  Iron_Shovel            items.png  2,5    +250
- 257  Iron_Pickaxe           items.png  2,6    +250
- 258  Iron_Axe               items.png  2,7    +250
- 259  Flint_and_Steel        items.png  5,0    +64
- 260  Apple                  items.png  10,0
- 261  Bow                    items.png  5,1    +384
- 262  Arrow                  items.png  5,2
- 263  Coal                   items.png  7,0    0
- 263  Charcoal               items.png  7,0    1
- 264  Diamond                items.png  7,3
- 265  Iron_Ingot             items.png  7,1
- 266  Gold_Ingot             items.png  7,2
- 267  Iron_Sword             items.png  2,4    +250
- 268  Wooden_Sword           items.png  0,4    +59
- 269  Wooden_Shovel          items.png  0,5    +59
- 270  Wooden_Pickaxe         items.png  0,6    +59
- 271  Wooden_Axe             items.png  0,7    +59
- 272  Stone_Sword            items.png  1,4    +131
- 273  Stone_Shovel           items.png  1,5    +131
- 274  Stone_Pickaxe          items.png  1,6    +131
- 275  Stone_Axe              items.png  1,7    +131
- 276  Diamond_Sword          items.png  3,4    +1561
- 277  Diamond_Shovel         items.png  3,5    +1561
- 278  Diamond_Pickaxe        items.png  3,6    +1561
- 279  Diamond_Axe            items.png  3,7    +1561
- 280  Stick                  items.png  5,3
- 281  Bowl                   items.png  7,4
- 282  Mushroom_Stew          items.png  8,4    x1
- 283  Golden_Sword           items.png  4,4    +32
- 284  Golden_Shovel          items.png  4,5    +32
- 285  Golden_Pickaxe         items.png  4,6    +32
- 286  Golden_Axe             items.png  4,7    +32
- 287  String                 items.png  8,0
- 288  Feather                items.png  8,1
- 289  Gunpowder              items.png  8,2
- 290  Wooden_Hoe             items.png  0,8    +59
- 291  Stone_Hoe              items.png  1,8    +131
- 292  Iron_Hoe               items.png  2,8    +250
- 293  Diamond_Hoe            items.png  3,8    +1561
- 294  Golden_Hoe             items.png  4,8    +32
- 295  Seeds                  items.png  9,0
- 296  Wheat                  items.png  9,1
- 297  Bread                  items.png  9,2
- 298  Leather_Cap            items.png  0,0    +34
- 299  Leather_Tunic          items.png  0,1    +48
- 300  Leather_Pants          items.png  0,2    +46
- 301  Leather_Boots          items.png  0,3    +40
- 302  Chainmail_Helmet       items.png  1,0    +68
- 303  Chainmail_Chestplate   items.png  1,1    +96
- 304  Chainmail_Leggings     items.png  1,2    +92
- 305  Chainmail_Boots        items.png  1,3    +80
- 306  Iron_Helmet            items.png  2,0    +136
- 307  Iron_Chestplate        items.png  2,1    +192
- 308  Iron_Leggings          items.png  2,2    +184
- 309  Iron_Boots             items.png  2,3    +160
- 310  Diamond_Helmet         items.png  3,0    +272
- 311  Diamond_Chestplate     items.png  3,1    +384
- 312  Diamond_Leggings       items.png  3,2    +368
- 313  Diamond_Boots          items.png  3,3    +320
- 314  Golden_Helmet          items.png  4,0    +68
- 315  Golden_Chestplate      items.png  4,1    +96
- 316  Golden_Leggings        items.png  4,2    +92
- 317  Golden_Boots           items.png  4,3    +80
- 318  Flint                  items.png  6,0
- 319  Raw_Porkchop           items.png  7,5
- 320  Cooked_Porkchop        items.png  8,5
- 321  Painting               items.png  10,1
- 322  Golden_Apple           items.png  11,0
- 322  Ench._Golden_Apple   special.png  0,3    1
- 323  Sign                   items.png  10,2   x16
- 324  Wooden_Door            items.png  11,2   x1
- 325  Bucket                 items.png  10,4   x16
- 326  Water_Bucket           items.png  11,4   x1
- 327  Lava_Bucket            items.png  12,4   x1
- 328  Minecart               items.png  7,8    x1
- 329  Saddle                 items.png  8,6    x1
- 330  Iron_Door              items.png  12,2   x1
- 331  Redstone               items.png  8,3
- 332  Snowball               items.png  14,0   x16
- 333  Boat                   items.png  8,8    x1
- 334  Leather                items.png  7,6
- 335  Milk                   items.png  13,4   x1
- 336  Brick                  items.png  6,1
- 337  Clay                   items.png  9,3
- 338  Sugar_Canes            items.png  11,1
- 339  Paper                  items.png  10,3
- 340  Book                   items.png  11,3
- 341  Slimeball              items.png  14,1
- 342  Minecart_with_Chest    items.png  7,9    x1
- 343  Minecart_with_Furnace  items.png  7,10   x1
- 344  Egg                    items.png  12,0
- 345  Compass                items.png  6,3    (x1)
- 346  Fishing_Rod            items.png  5,4    +64
- 347  Clock                  items.png  6,4    (x1)
- 348  Glowstone_Dust         items.png  9,4
- 349  Raw_Fish               items.png  9,5
- 350  Cooked_Fish            items.png  10,5
- 351  Ink_Sack               items.png  14,4   0
- 351  Rose_Red               items.png  14,5   1
- 351  Cactus_Green           items.png  14,6   2
- 351  Coco_Beans             items.png  14,7   3
- 351  Lapis_Lazuli           items.png  14,8   4
- 351  Purple_Dye             items.png  14,9   5
- 351  Cyan_Dye               items.png  14,10  6
- 351  Light_Gray_Dye         items.png  14,11  7
- 351  Gray_Dye               items.png  15,4   8
- 351  Pink_Dye               items.png  15,5   9
- 351  Lime_Dye               items.png  15,6   10
- 351  Dandelion_Yellow       items.png  15,7   11
- 351  Light_Blue_Dye         items.png  15,8   12
- 351  Magenta_Dye            items.png  15,9   13
- 351  Orange_Dye             items.png  15,10  14
- 351  Bone_Meal              items.png  15,11  15
- 352  Bone                   items.png  12,1
- 353  Sugar                  items.png  13,0
- 354  Cake                   items.png  13,1   x1
- 355  Bed                    items.png  13,2   x1
- 356  Redstone_Repeater      items.png  6,5
- 357  Cookie                 items.png  12,5
- 358  Map                    items.png  12,3   x1
- 359  Shears                 items.png  13,5   +238
- 360  Melon                  items.png  13,6
- 361  Pumpkin_Seeds          items.png  13,3
- 362  Melon_Seeds            items.png  14,3
- 363  Raw_Beef               items.png  9,6
- 364  Steak                  items.png  10,6
- 365  Raw_Chicken            items.png  9,7
- 366  Cooked_Chicken         items.png  10,7
- 367  Rotten_Flesh           items.png  11,5
- 368  Ender_Pearl            items.png  11,6
- 369  Blaze_Rod              items.png  12,6
- 370  Ghast_Tear             items.png  11,7
- 371  Gold_Nugget            items.png  12,7
- 372  Nether_Wart            items.png  13,7
- 374  Glass_Bottle           items.png  12,8
- 375  Spider_Eye             items.png  11,8
- 376  Fermented_Spider_Eye   items.png  10,8
- 377  Blaze_Powder           items.png  13,9
- 378  Magma_Cream            items.png  13,10
- 379  Brewing_Stand          items.png  12,10  (x1)
- 380  Cauldron               items.png  12,9   (x1)
- 381  Eye_of_Ender           items.png  11,9
- 382  Glistering_Melon       items.png  9,8
- 383  Spawn_Egg              items.png  9,9
- 384  Bottle_o'_Enchanting   items.png  11,10
- 385  Fire_Charge            items.png  14,2
- 386  Book_and_Quill         items.png  11,11  x1
- 387  Written_Book           items.png  12,11  x1
- 388  Emerald                items.png  10,11
- 389  Item_Frame             items.png  14,12
- 390  Flower_Pot             items.png  13,11
- 391  Carrot                 items.png  8,7
- 392  Potato                 items.png  7,7
- 393  Baked_Potato           items.png  6,7
- 394  Poisonous_Potato       items.png  6,8
- 395  Empty_Map              items.png  13,12  x1
- 396  Golden_Carrot          items.png  6,9
- 397  Skeleton_Head          items.png  0,14   0
- 397  Wither_Skeleton_Head   items.png  1,14   1
- 397  Zombie_Head            items.png  2,14   2
- 397  Human_Head             items.png  3,14   3
- 397  Creeper_Head           items.png  4,14   4
- 398  Carrot_on_a_Stick      items.png  6,6    +25
- 399  Nether_Star            items.png  9,11
- 400  Pumpkin_Pie            items.png  8,9
-2256  C418_-_13              items.png  0,15   x1
-2257  C418_-_cat             items.png  1,15   x1
-2258  C418_-_blocks          items.png  2,15   x1
-2259  C418_-_chirp           items.png  3,15   x1
-2260  C418_-_far             items.png  4,15   x1
-2261  C418_-_mall            items.png  5,15   x1
-2262  C418_-_mellohi         items.png  6,15   x1
-2263  C418_-_stal            items.png  7,15   x1
-2264  C418_-_strad           items.png  8,15   x1
-2265  C418_-_ward            items.png  9,15   x1
-2266  C418_-_11              items.png  10,15  x1
-2267  C418_-_wait          special.png  0,8    x1
+# Blocks
+# ID  NAME                            FILE                            DAMAGE
+   1  Stone                           blocks/stone.png
+   2  Grass                           blocks/grass_side.png
+   3  Dirt                            blocks/dirt.png
+   4  Cobblestone                     blocks/stonebrick.png
+   5  Oak_Wooden_Planks               blocks/wood.png                 0
+   5  Spruce_Wooden_Planks            blocks/wood_spruce.png          1
+   5  Birch_Wooden_Planks             blocks/wood_birch.png           2
+   5  Jungle_Wooden_Planks            blocks/wood_jungle.png          3
+   6  Oak_Sapling                     blocks/sapling.png              0
+   6  Spruce_Sapling                  blocks/sapling_spruce.png       1
+   6  Birch_Sapling                   blocks/sapling_birch.png        2
+   6  Jungle_Sapling                  blocks/sapling_jungle.png       3
+   7  Bedrock                         blocks/bedrock.png  
+   8  Water                           blocks/water_flow.png  
+   9  Water_(No_Spread)               blocks/water.png  
+  10  Lava                            blocks/lava_flow.png  
+  11  Lava_(No_Spread)                blocks/lava.png  
+  12  Sand                            blocks/sand.png  
+  13  Gravel                          blocks/gravel.png  
+  14  Gold_Ore                        blocks/oreGold.png  
+  15  Iron_Ore                        blocks/oreIron.png  
+  16  Coal_Ore                        blocks/oreCoal.png  
+  17  Oak_Wood                        blocks/tree_side.png                 0
+  17  Spruce_Wood                     blocks/tree_spruce.png               1
+  17  Birch_Wood                      blocks/tree_birch.png                2
+  17  Jungle_Wood                     blocks/tree_jungle.png               3
+  18  Oak_Leaves                      special/leaves_oak_opaque.png        0
+  18  Spruce_Leaves                   special/leaves_spruce_opaque.png     1
+  18  Birch_Leaves                    special/leaves_birch_opaque.png      2
+  18  Jungle_Leaves                   special/leaves_jungle_opaque.png     3
+  19  Sponge                          blocks/sponge.png  
+  20  Glass                           blocks/glass.png  
+  21  Lapis_Lazuli_Ore                blocks/oreLapis.png  
+  22  Lapis_Lazuli_Block              blocks/blockLapis.png  
+  23  Dispenser                       blocks/dispenser_front.png  
+  24  Sandstone                       blocks/sandstone_side.png             0
+  24  Chiseled_Sandstone              blocks/sandstone_carved.png           1
+  24  Smooth_Sandstone                blocks/sandstone_smooth.png           2
+  25  Note_Block                      blocks/musicBlock.png  
+  26  Bed_Block                       items/bed.png  
+  27  Powered_Rail                    blocks/goldenRail_powered.png  
+  28  Detector_Rail                   blocks/detectorRail.png  
+  29  Sticky_Piston                   blocks/piston_top_sticky.png  
+  30  Cobweb                          blocks/web.png  
+  31  Dead_Bush                       blocks/deadbush.png                 0
+  31  Tall_Grass                      special/tallgrass.png               1
+  31  Fern                            special/fern.png                    2
+  32  Dead_Bush                       blocks/deadbush.png 
+  33  Piston                          blocks/piston_side.png  
+  34  Piston_(head)                   blocks/piston_top.png  
+  35  Wool                            blocks/cloth_0.png                  0
+  35  Orange_Wool                     blocks/cloth_1.png                  1
+  35  Magenta_Wool                    blocks/cloth_2.png                  2
+  35  Light_Blue_Wool                 blocks/cloth_3.png                  3
+  35  Yellow_Wool                     blocks/cloth_4.png                  4
+  35  Lime_Wool                       blocks/cloth_5.png                  5
+  35  Pink_Wool                       blocks/cloth_6.png                  6
+  35  Gray_Wool                       blocks/cloth_7.png                  7
+  35  Light_Gray_Wool                 blocks/cloth_8.png                  8
+  35  Cyan_Wool                       blocks/cloth_9.png                  9
+  35  Purple_Wool                     blocks/cloth_10.png                 10
+  35  Blue_Wool                       blocks/cloth_11.png                 11
+  35  Brown_Wool                      blocks/cloth_12.png                 12
+  35  Green_Wool                      blocks/cloth_13.png                 13
+  35  Red_Wool                        blocks/cloth_14.png                 14
+  35  Black_Wool                      blocks/cloth_15.png                 15
+  36  Invisible_Block_(Piston)        special/unknown.png
+  37  Flower                          blocks/flower.png  
+  38  Rose                            blocks/rose.png  
+  39  Brown_Mushroom                  blocks/mushroom_brown.png  
+  40  Red_Mushroom                    blocks/mushroom_red.png  
+  41  Block_of_Gold                   blocks/blockGold.png  
+  42  Block_of_Iron                   blocks/blockIron.png  
+  43  Double_Stone_Slab               blocks/stoneslab_side.png           0
+  43  Double_Sandstone_Slab           blocks/sandstone_side.png           1
+  43  Double_Wooden_Slab              blocks/wood.png                     2
+  43  Double_Stone_Slab               blocks/stoneslab_side.png           3
+  43  Double_Brick_Slab               blocks/brick.png                    4
+  43  Double_Stone_Brick_Slab         blocks/stoneslab_side.png           5
+  43  Double_Nether_Brik_Slab         blocks/netherBrick.png              6
+  43  Double_Quartz_Slab              blocks/quartzblock_side.png         7
+  43  Double_Smooth_Stone_Slab        blocks/stoneslab_top.png            8
+  43  Double_Smooth_Sandstone_Slab    blocks/sandstone_top.png            9
+  44  Stone_Slab                      blocks/stoneslab_side.png           0
+  44  Sandstone_Slab                  blocks/sandstone_side.png           1
+  44  Wooden_Slab                     blocks/wood.png                     2
+  44  Stone_Slab                      blocks/stonebrick.png               3
+  44  Brick_Slab                      blocks/brick.png                    4
+  44  Stone_Brick_Slab                blocks/stonebricksmooth.png         5
+  44  Nether_Brick_Slab               blocks/netherBrick.png              6
+  44  Quartz_Slab                     blocks/quartzblock_side.png         7
+  45  Bricks                          blocks/brick.png  
+  46  TNT                             blocks/tnt_side.png  
+  47  Bookshelf                       blocks/bookshelf.png  
+  48  Moss_Stone                      blocks/stoneMoss.png  
+  49  Obsidian                        blocks/obsidian.png  
+  50  Torch                           blocks/torch.png  
+  51  Fire                            blocks/fire_0.png  
+  52  Monster_Spawner                 blocks/mobSpawner.png               0
+  53  Oak_Wood_Stair                  blocks/wood.png  
+  54  Chest					          special/chest.png  
+  55  Redstone_Dust                   items/redstone.png  
+  56  Diamond_Ore                     blocks/oreDiamond.png  
+  57  Block_of_Diamond                blocks/blockDiamond.png  
+  58  Workbench                       blocks/workbench_front.png     (x1)
+  59  Crops                           blocks/crops_7.png  
+  60  Farmland                        blocks/farmland_dry.png  
+  61  Furnace                         blocks/furnace_front.png  
+  62  Lit_Furnace                     blocks/furnace_front_lit.png  
+  63  Sign_Block                      items/sign.png  
+  64  Wooden_Door_Block               items/doorWood.png  
+  65  Ladder                          blocks/ladder.png  
+  66  Rail                            blocks/rail.png  
+  67  Stone_Stairs                    blocks/stonebrick.png  
+  68  Wall_Sign                       items/sign.png   
+  69  Lever                           blocks/lever.png  
+  70  Stone_Pressure_Plate            blocks/stone.png  
+  71  Iron_Door_Block                 items/doorIron.png  
+  72  Wooden_Pressure_Plate           blocks/wood.png  
+  73  Redstone_Ore                    blocks/oreRedstone.png  
+  74  Glowing_Redstone_Ore            blocks/oreRedstone.png  
+  75  Redstone_Torch_(off)            blocks/redtorch.png  
+  76  Redstone_Torch                  blocks/redtorch_lit.png  
+  77  Stone_Button                    blocks/stone.png  
+  78  Snow_Layer                      blocks/snow.png  
+  79  Ice                             blocks/ice.png  
+  80  Snow                            blocks/snow.png  
+  81  Cactus                          blocks/cactus_side.png  
+  82  Clay                            blocks/clay.png  
+  83  Sugar_cane                      blocks/reeds.png  
+  84  Jukebox                         blocks/musicBlock.png  
+  85  Fence                           special/fence.png  
+  86  Pumpkin                         blocks/pumpkin_face.png  
+  87  Netherrack                      blocks/hellrock.png  
+  88  Soul_Sand                       blocks/hellsand.png  
+  89  Glowstone                       blocks/lightgem.png  
+  90  Portal                          special/portal.png  
+  91  Jack-o'-lantern                 blocks/pumpkin_jack.png  
+  92  Cake                            items/cake.png  
+  93  Repeater_Block_(off)            blocks/repeater.png  
+  94  Repeater_Block                  blocks/repeater_lit.png  
+  95  Locked_Chest                    special/chest.png   
+  96  Trapdoor                        blocks/trapdoor.png  
+  97  Silverfish_Block                blocks/stone.png                         0
+  97  Silverfish_Cobblestone          blocks/stonebrick.png                    1
+  97  Silverfish_Stone_Brick          blocks/stonebricksmooth.png              2
+  98  Stone_Brick                     blocks/stonebricksmooth.png              0
+  98  Mossy_Stone_Brick               blocks/stonebricksmooth_mossy.png        1
+  98  Cracked_Stone_Brick             blocks/stonebricksmooth_cracked.png      2
+  98  Chiseled_Stone_Brick            blocks/stonebricksmooth_carved.png       3
+  99  Brown_Mushroom_Block            blocks/mushroom_inside.png  
+ 100  Red_Mushroom_Block              blocks/mushroom_inside.png  
+ 101  Iron_Bars                       blocks/fenceIron.png  
+ 102  Glass_Pane                      blocks/glass.png  
+ 103  Melon                           blocks/melon_side.png  
+ 104  Pumpkin_Stem                    blocks/stem_straight.png  
+ 105  Melon_Stem                      blocks/stem_straight.png  
+ 106  Vines                           special/vines.png  
+ 107  Fence_Gate                      special/fence_gate.png  
+ 108  Brick_Stairs                    blocks/brick.png  
+ 109  Stone_Brick_Stairs              blocks/stonebricksmooth.png  
+ 110  Mycelium                        blocks/mycel_side.png  
+ 111  Lily_Pad                        special/waterlily.png  
+ 112  Nether_Brick                    blocks/netherBrick.png  
+ 113  Nether_Brick_Fence              special/fence_nether_brick.png  
+ 114  Nether_Brick_Stairs             blocks/netherBrick.png
+ 115  Nether_Wart                     blocks/netherStalk_2.png
+ 116  Enchantment_Table               blocks/enchantment_side.png               (x1)
+ 117  Brewing_Stand                   blocks/brewingStand.png  
+ 118  Cauldron                        blocks/cauldron_side.png  
+ 119  End_Portal                      special/portal_end.png  
+ 120  End_Portal_Frame                blocks/endframe_top.png  
+ 121  End_Stone                       blocks/whiteStone.png  
+ 122  Dragon_Egg                      special/dragonEgg.png  
+ 123  Redstone_Lamp                   blocks/redstoneLight.png  
+ 124  Redstone_Lamp_(on)              blocks/redstoneLight_lit.png  
+ 125  Oak_Wooden_D._Slab              blocks/wood.png                 0
+ 125  Spruce_Wooden_D._Slab           blocks/wood_spruce.png          1
+ 125  Birch_Wooden_D._Slab            blocks/wood_birch.png           2
+ 125  Jungle_Wooden_D._Slab           blocks/wood_jungle.png          3
+ 126  Oak_Wooden_Slab                 blocks/wood.png                 0
+ 126  Spruce_Wooden_Slab              blocks/wood_spruce.png          1
+ 126  Birch_Wooden_Slab               blocks/wood_birch.png           2
+ 126  Jungle_Wooden_Slab              blocks/wood_jungle.png          3
+ 127  Cocoa_Plant                     blocks/cocoa_2.png  
+ 128  Sandstone_Stairs                blocks/sandstone_side.png  
+ 129  Emerald_Ore                     blocks/oreEmerald.png  
+ 130  Ender_Chest                     special/chest_ender.png  
+ 131  Tripwire_Hook                   blocks/tripWireSource.png  
+ 132  Tripwire                        blocks/tripWire.png  
+ 133  Block_of_Emerald                blocks/blockEmerald.png  
+ 134  Spruce_Wood_Stairs              blocks/wood_spruce.png  
+ 135  Birch_Wood_Stairs               blocks/wood_birch.png  
+ 136  Jungle_Wood_Stairs              blocks/wood_jungle.png  
+ 137  Command_Block                   blocks/commandBlock.png  
+ 138  Beacon                          blocks/beacon.png  
+ 139  Cobblestone_Wall                special/stone_wall.png           0
+ 139  Moss_Stone_Wall                 special/stone_wall_moss.png      1
+ 140  Flower_Pot                      blocks/flowerPot.png      
+ 141  Carrot_Crop                     blocks/carrots_3.png  
+ 142  Potatoe_Crop                    blocks/potatoes_3.png  
+ 143  Wooden_Button                   blocks/wood.png                 
+ 144  Skull_Skeleton                  items/skull_skeleton.png        0
+ 144  Skull_Wither                    items/skull_wither.png          1
+ 144  Skull_Zombie                    items/skull_zombie.png          2
+ 144  Skull_Steve                     items/skull_char.png            3
+ 144  Skull_Creeper                   items/skull_creeper.png         4
+ 145  Anvil                           special/anvil.png               0
+ 145  Slightly_Damaged_Anvil          special/anvil.png               1
+ 145  Very_Damaged_Anvil              special/anvil.png               2
+ 146  Trapped_Chest                   special/chest_trap.png      
+ 147  Weighted_Pressure_Plate_Light   blocks/blockGold.png      
+ 148  Weighted_Pressure_Plate_Heavy   blocks/blockIron.png
+ 149  Redstone_Comparator_Off         blocks/comparator.png 
+ 150  Redstone_Comparator_On          blocks/comparator_lit.png 
+ 151  Daylight_Sensor                 blocks/daylightDetector_top.png 
+ 152  Redstone_Block                  blocks/blockRedstone.png 
+ 153  Nether_Quartz_Ore               blocks/netherquartz.png 
+ 154  Hopper                          items/hopper.png 
+ 155  Quartz_Block                    blocks/quartzblock_side.png      0
+ 155  Chiseled_Quartz_Block           blocks/quartzblock_chiseled.png  1
+ 155  Pillar_Quartz_Block             blocks/quartzblock_lines.png     2
+ 156  Quartz_Stairs                   blocks/quartzblock_side.png 
+ 157  Activator_Rail                  blocks/activatorRail_powered.png
+ 158  Item_Dropper                    blocks/dropper_front.png         
 
-#           Potions
-# ID  NAME                    FILE         CORDS  DAMAGE
- 373  Water_Bottle            special.png  0,14   0 
- 373  Awkward_Potion          special.png  1,14   16
- 373  Thick_Potion            special.png  1,14   32
- 373  Mundane_Potion          special.png  1,14   64
- 373  Mundane_Potion          special.png  1,14   8192
- 373  Regeneration_(0:45)     special.png  2,14   8193
- 373  Regeneration_(2:00)     special.png  2,14   8257
- 373  Regeneration_II_(0:22)  special.png  2,14   8225
- 373  Swiftness_(3:00)        special.png  3,14   8194
- 373  Swiftness_(8:00)        special.png  3,14   8258
- 373  Swiftness_II_(1:30)     special.png  3,14   8226
- 373  Fire_Resistance_(3:00)  special.png  4,14   8195
- 373  Fire_Resistance_(3:00)  special.png  4,14   8227
- 373  Fire_Resistance_(8:00)  special.png  4,14   8259
- 373  Healing                 special.png  6,14   8197
- 373  Healing                 special.png  6,14   8261
- 373  Healing_II              special.png  6,14   8229
- 373  Strength_(3:00)         special.png  8,14   8201
- 373  Strength_(8:00)         special.png  8,14   8265
- 373  Strength_II_(1:30)      special.png  8,14   8233
- 373  Poison_(0:45)           special.png  5,14   8196
- 373  Poison_(2:00)           special.png  5,14   8260
- 373  Poison_II_(0:22)        special.png  5,14   8228
- 373  Weakness_(1:30)         special.png  7,14   8200
- 373  Weakness_(1:30)         special.png  7,14   8332
- 373  Weakness_(4:00)         special.png  7,14   8264
- 373  Slowness_(1:30)         special.png  9,14   8202
- 373  Slowness_(1:30)         special.png  9,14   8234
- 373  Slowness_(4:00)         special.png  9,14   8266
- 373  Harming                 special.png  10,14  8204
- 373  Harming                 special.png  10,14  8268
- 373  Harming_II              special.png  10,14  8236
- 373  Night_Vision_(3:00)     special.png  11,14  8198
- 373  Night_Vision_(8:00)     special.png  11,14  8262
- 373  Invisibility_(3:00)     special.png  12,14  8206
- 373  Invisibility_(8:00)     special.png  12,14  8270
+# Items
+# ID  NAME                   FILE                          DAMAGE
+ 256  Iron_Shovel            items/shovelIron.png          +250
+ 257  Iron_Pickaxe           items/pickaxeIron.png         +250
+ 258  Iron_Axe               items/hatchetIron.png         +250
+ 259  Flint_and_Steel        items/flintAndSteel.png       +64
+ 260  Apple                  items/apple.png  
+ 261  Bow                    items/bow.png                 +384
+ 262  Arrow                  items/arrow.png  
+ 263  Coal                   items/coal.png                 0
+ 263  Charcoal               items/coal.png                 1
+ 264  Diamond                items/diamond.png  
+ 265  Iron_Ingot             items/ingotIron.png  
+ 266  Gold_Ingot             items/ingotGold.png  
+ 267  Iron_Sword             items/swordIron.png            +250
+ 268  Wooden_Sword           items/swordWood.png            +59
+ 269  Wooden_Shovel          items/shovelWood.png           +59
+ 270  Wooden_Pickaxe         items/pickaxeWood.png          +59
+ 271  Wooden_Axe             items/hatchetWood.png          +59
+ 272  Stone_Sword            items/swordStone.png           +131
+ 273  Stone_Shovel           items/shovelStone.png          +131
+ 274  Stone_Pickaxe          items/pickaxeStone.png         +131
+ 275  Stone_Axe              items/hatchetStone.png         +131
+ 276  Diamond_Sword          items/swordDiamond.png         +1561
+ 277  Diamond_Shovel         items/shovelDiamond.png        +1561
+ 278  Diamond_Pickaxe        items/pickaxeDiamond.png       +1561
+ 279  Diamond_Axe            items/hatchetDiamond.png       +1561
+ 280  Stick                  items/stick.png  
+ 281  Bowl                   items/bowl.png  
+ 282  Mushroom_Stew          items/mushroomStew.png         x1
+ 283  Golden_Sword           items/swordGold.png            +32
+ 284  Golden_Shovel          items/shovelGold.png           +32
+ 285  Golden_Pickaxe         items/pickaxeGold.png          +32
+ 286  Golden_Axe             items/hatchetGold.png          +32
+ 287  String                 items/string.png  
+ 288  Feather                items/feather.png  
+ 289  Gunpowder              items/sulphur.png  
+ 290  Wooden_Hoe             items/hoeWood.png              +59
+ 291  Stone_Hoe              items/hoeStone.png             +131
+ 292  Iron_Hoe               items/hoeIron.png              +250
+ 293  Diamond_Hoe            items/hoeDiamond.png           +1561
+ 294  Golden_Hoe             items/hoeGold.png              +32
+ 295  Seeds                  items/seeds.png  
+ 296  Wheat                  items/wheat.png  
+ 297  Bread                  items/bread.png  
+ 298  Leather_Cap            items/helmetCloth.png          +34
+ 299  Leather_Tunic          items/chestplateCloth.png      +48
+ 300  Leather_Pants          items/leggingsCloth.png        +46
+ 301  Leather_Boots          items/bootsCloth.png           +40
+ 302  Chainmail_Helmet       items/helmetChain.png          +68
+ 303  Chainmail_Chestplate   items/chestplateChain.png      +96
+ 304  Chainmail_Leggings     items/leggingsChain.png        +92
+ 305  Chainmail_Boots        items/bootsChain.png           +80
+ 306  Iron_Helmet            items/helmetIron.png           +136
+ 307  Iron_Chestplate        items/chestplateIron.png       +192
+ 308  Iron_Leggings          items/leggingsIron.png         +184
+ 309  Iron_Boots             items/bootsIron.png            +160
+ 310  Diamond_Helmet         items/helmetDiamond.png        +272
+ 311  Diamond_Chestplate     items/chestplateDiamond.png    +384
+ 312  Diamond_Leggings       items/leggingsDiamond.png      +368
+ 313  Diamond_Boots          items/bootsDiamond.png         +320
+ 314  Golden_Helmet          items/helmetGold.png           +68
+ 315  Golden_Chestplate      items/chestplateGold.png       +96
+ 316  Golden_Leggings        items/leggingsGold.png         +92
+ 317  Golden_Boots           items/bootsGold.png            +80
+ 318  Flint                  items/flint.png  
+ 319  Raw_Porkchop           items/porkchopRaw.png  
+ 320  Cooked_Porkchop        items/porkchopCooked.png  
+ 321  Painting               items/painting.png  
+ 322  Golden_Apple           items/appleGold.png            0
+ 322  Ench._Golden_Apple     special/apple_Enchanted.png    1
+ 323  Sign                   items/sign.png                 x16
+ 324  Wooden_Door            items/doorWood.png             x1
+ 325  Bucket                 items/bucket.png               x16
+ 326  Water_Bucket           items/bucketWater.png          x1
+ 327  Lava_Bucket            items/bucketLava.png           x1
+ 328  Minecart               items/minecart.png             x1
+ 329  Saddle                 items/saddle.png               x1
+ 330  Iron_Door              items/doorIron.png             x1
+ 331  Redstone               items/redstone.png  
+ 332  Snowball               items/snowball.png             x16
+ 333  Boat                   items/boat.png                 x1
+ 334  Leather                items/leather.png   
+ 335  Milk                   items/milk.png                 x1
+ 336  Brick                  items/brick.png  
+ 337  Clay                   items/clay.png  
+ 338  Sugar_Canes            items/reeds.png  
+ 339  Paper                  items/paper.png  
+ 340  Book                   items/book.png  
+ 341  Slimeball              items/slimeball.png  
+ 342  Minecart_with_Chest    items/minecartChest.png        x1
+ 343  Minecart_with_Furnace  items/minecartFurnace.png      x1
+ 344  Egg                    items/egg.png  
+ 345  Compass                items/compass.png             (x1)
+ 346  Fishing_Rod            items/fishingRod.png          +64
+ 347  Clock                  items/clock.png               (x1)
+ 348  Glowstone_Dust         items/yellowDust.png  
+ 349  Raw_Fish               items/fishRaw.png  
+ 350  Cooked_Fish            items/fishCooked.png  
+ 351  Ink_Sack               items/dyePowder_black.png      0
+ 351  Rose_Red               items/dyePowder_red.png        1
+ 351  Cactus_Green           items/dyePowder_green.png      2
+ 351  Coco_Beans             items/dyePowder_brown.png      3
+ 351  Lapis_Lazuli           items/dyePowder_blue.png       4
+ 351  Purple_Dye             items/dyePowder_purple.png     5
+ 351  Cyan_Dye               items/dyePowder_cyan.png       6
+ 351  Light_Gray_Dye         items/dyePowder_silver.png     7
+ 351  Gray_Dye               items/dyePowder_gray.png       8
+ 351  Pink_Dye               items/dyePowder_pink.png       9
+ 351  Lime_Dye               items/dyePowder_lime.png       10
+ 351  Dandelion_Yellow       items/dyePowder_yellow.png     11
+ 351  Light_Blue_Dye         items/dyePowder_lightBlue.png  12
+ 351  Magenta_Dye            items/dyePowder_magenta.png    13
+ 351  Orange_Dye             items/dyePowder_orange.png     14
+ 351  Bone_Meal              items/dyePowder_white.png      15
+ 352  Bone                   items/bone.png  
+ 353  Sugar                  items/sugar.png  
+ 354  Cake                   items/cake.png                 x1
+ 355  Bed                    items/bed.png                  x1
+ 356  Redstone_Repeater      items/diode.png  
+ 357  Cookie                 items/cookie.png  
+ 358  Map                    items/map.png                  x1
+ 359  Shears                 items/shears.png               +238
+ 360  Melon                  items/melon.png  
+ 361  Pumpkin_Seeds          items/seeds_pumpkin.png  
+ 362  Melon_Seeds            items/seeds_melon.png  
+ 363  Raw_Beef               items/beefRaw.png  
+ 364  Steak                  items/beefCooked.png  
+ 365  Raw_Chicken            items/chickenRaw.png  
+ 366  Cooked_Chicken         items/chickenCooked.png  
+ 367  Rotten_Flesh           items/rottenFlesh.png  
+ 368  Ender_Pearl            items/enderPearl.png  
+ 369  Blaze_Rod              items/blazeRod.png  
+ 370  Ghast_Tear             items/ghastTear.png  
+ 371  Gold_Nugget            items/goldNugget.png  
+ 372  Nether_Wart            items/netherStalkSeeds.png
+ 374  Glass_Bottle           items/glassBottle.png  
+ 375  Spider_Eye             items/spiderEye.png  
+ 376  Fermented_Spider_Eye   items/fermentedSpiderEye.png  
+ 377  Blaze_Powder           items/blazePowder.png  
+ 378  Magma_Cream            items/magmaCream.png  
+ 379  Brewing_Stand          items/brewingStand.png    (x1)
+ 380  Cauldron               items/cauldron.png    (x1)
+ 381  Eye_of_Ender           items/eyeOfEnder.png  
+ 382  Glistering_Melon       items/speckledMelon.png  
+ 383  Spawn_Egg              items/monsterPlacer.png  
+ 384  Bottle_o'_Enchanting   items/expBottle.png  
+ 385  Fire_Charge            items/fireball.png  
+ 386  Book_and_Quill         items/writingBook.png    x1
+ 387  Written_Book           items/writtenBook.png    x1
+ 388  Emerald                items/emerald.png  
+ 389  Item_Frame             items/frame.png  
+ 390  Flower_Pot             items/flowerPot.png  
+ 391  Carrot                 items/carrots.png  
+ 392  Potato                 items/potato.png  
+ 393  Baked_Potato           items/potatoBaked.png  
+ 394  Poisonous_Potato       items/potatoPoisonous.png  
+ 395  Empty_Map              items/emptyMap.png    x1
+ 396  Golden_Carrot          items/carrotGolden.png  
+ 397  Skeleton_Head          items/skull_skeleton.png     0
+ 397  Wither_Skeleton_Head   items/skull_wither.png       1
+ 397  Zombie_Head            items/skull_zombie.png       2
+ 397  Human_Head             items/skull_char.png         3
+ 397  Creeper_Head           items/skull_creeper.png      4
+ 398  Carrot_on_a_Stick      items/carrotOnAStick.png     +25
+ 399  Nether_Star            items/netherStar.png  
+ 400  Pumpkin_Pie            items/pumpkinPie.png
+ 401  Firework_Rocket        items/fireworks.png 
+ 402  FireWork_Star          items/fireworksCharge.png 
+ 403  Enchanted_Book         items/enchantedBook.png      
+ 404  Redstone_Comparator    items/comparator.png 
+ 405  Nether_Brick           items/netherbrick.png 
+ 406  Nether_Quartz          items/netherquartz.png 
+ 407  TNT_Minecart           items/minecartTnt.png
+ 408  Minecart_with_Hopper   items/minecartHopper.png     
+2256  C418_-_13              items/record_13.png          x1
+2257  C418_-_cat             items/record_cat.png         x1
+2258  C418_-_blocks          items/record_blocks.png      x1
+2259  C418_-_chirp           items/record_chirp.png       x1
+2260  C418_-_far             items/record_far.png         x1
+2261  C418_-_mall            items/record_mall.png        x1
+2262  C418_-_mellohi         items/record_mellohi.png     x1
+2263  C418_-_stal            items/record_stal.png        x1
+2264  C418_-_strad           items/record_strad.png       x1
+2265  C418_-_ward            items/record_ward.png        x1
+2266  C418_-_11              items/record_11.png          x1
+2267  C418_-_wait            items/record_wait.png        x1
+
+# Potions
+# ID  NAME                    FILE                             DAMAGE
+ 373  Water_Bottle            special/bottle_water.png         0 
+ 373  Awkward_Potion          special/bottle_water.png         16
+ 373  Thick_Potion            special/bottle_water.png         32
+ 373  Mundane_Potion          special/bottle_water.png         64
+ 373  Mundane_Potion          special/bottle_water.png         8192
+ 373  Regeneration_(0:45)     special/bottle_regen.png         8193
+ 373  Regeneration_(2:00)     special/bottle_regen.png         8257
+ 373  Regeneration_II_(0:22)  special/bottle_regen.png         8225
+ 373  Swiftness_(3:00)        special/bottle_swiftness.png     8194
+ 373  Swiftness_(8:00)        special/bottle_swiftness.png     8258
+ 373  Swiftness_II_(1:30)     special/bottle_swiftness.png     8226
+ 373  Fire_Resistance_(3:00)  special/bottle_fireResist.png    8195
+ 373  Fire_Resistance_(8:00)  special/bottle_fireResist.png    8259
+ 373  Healing                 special/bottle_healing.png       8197
+ 373  Healing                 special/bottle_healing.png       8261
+ 373  Healing_II              special/bottle_healing.png       8229
+ 373  Strength_(3:00)         special/bottle_strength.png      8201
+ 373  Strength_(8:00)         special/bottle_strength.png      8265
+ 373  Strength_II_(1:30)      special/bottle_strength.png      8233
+ 373  Poison_(0:45)           special/bottle_poison.png        8196
+ 373  Poison_(2:00)           special/bottle_poison.png        8260
+ 373  Poison_II_(0:22)        special/bottle_poison.png        8228
+ 373  Weakness_(1:30)         special/bottle_weakness.png      8200
+ 373  Weakness_(1:30)         special/bottle_weakness.png      8332
+ 373  Weakness_(4:00)         special/bottle_weakness.png      8264
+ 373  Slowness_(1:30)         special/bottle_slowness.png      8202
+ 373  Slowness_(1:30)         special/bottle_slowness.png      8234
+ 373  Slowness_(4:00)         special/bottle_slowness.png      8266
+ 373  Harming                 special/bottle_harming.png       8204
+ 373  Harming                 special/bottle_harming.png       8268
+ 373  Harming_II              special/bottle_harming.png       8236
+ 373  Night_Vision_(3:00)     special/bottle_nightvision.png   8198
+ 373  Night_Vision_(8:00)     special/bottle_nightvision.png   8262
+ 373  Invisibility_(3:00)     special/bottle_invis.png         8206
+ 373  Invisibility_(8:00)     special/bottle_invis.png         8270
 # Unbrewable:
- 373  Regeneration_II_(1:00)  special.png  2,14   8289
- 373  Swiftness_II_(4:00)     special.png  3,14   8290
- 373  Strength_II_(4:00)      special.png  8,14   8297
- 373  Poison_II_(1:00)        special.png  5,14   8292
+ 373  Regeneration_II_(1:00)  special/bottle_regen.png         8289
+ 373  Swiftness_II_(4:00)     special/bottle_swiftness.png     8290
+ 373  Strength_II_(4:00)      special/bottle_strength.png      8297
+ 373  Poison_II_(1:00)        special/bottle_poison.png        8292
 
-#           Splash Potions
-# ID  NAME                    FILE         CORDS  DAMAGE
- 373  Splash_Mundane          special.png  1,13   16384
- 373  Regeneration_(0:33)     special.png  2,13   16385
- 373  Regeneration_(1:30)     special.png  2,13   16499
- 373  Regeneration_II_(0:16)  special.png  2,13   16417
- 373  Swiftness_(2:15)        special.png  3,13   16386
- 373  Swiftness_(6:00)        special.png  3,13   16450
- 373  Swiftness_II_(1:07)     special.png  3,13   16418
- 373  Fire_Resistance_(2:15)  special.png  4,13   16387
- 373  Fire_Resistance_(2:15)  special.png  4,13   16419
- 373  Fire_Resistance_(6:00)  special.png  4,13   16451
- 373  Healing                 special.png  6,13   16389
- 373  Healing                 special.png  6,13   16453
- 373  Healing_II              special.png  6,13   16421
- 373  Strength_(2:15)         special.png  8,13   16393
- 373  Strength_(6:00)         special.png  8,13   16457
- 373  Strength_II_(1:07)      special.png  8,13   16425
- 373  Poison_(0:33)           special.png  5,13   16388
- 373  Poison_(1:30)           special.png  5,13   16452
- 373  Poison_II_(0:16)        special.png  5,13   16420
- 373  Weakness_(1:07)         special.png  7,13   16392
- 373  Weakness_(1:07)         special.png  7,13   16424
- 373  Weakness_(3:00)         special.png  7,13   16456
- 373  Slowness_(1:07)         special.png  9,13   16394
- 373  Slowness_(1:07)         special.png  9,13   16426
- 373  Slowness_(3:00)         special.png  9,13   16458
- 373  Harming                 special.png  10,13  16396
- 373  Harming                 special.png  10,13  16460
- 373  Harming_II              special.png  10,13  16428
- 373  Night_Vision_(3:00)     special.png  11,13  16390
- 373  Night_Vision_(8:00)     special.png  11,13  16454
- 373  Invisibility_(3:00)     special.png  12,13  16398
- 373  Invisibility_(8:00)     special.png  12,13  16462
+# Splash Potions
+# ID  NAME                    FILE                             DAMAGE
+ 373  Splash_Mundane          special/splash_water.png         16384
+ 373  Regeneration_(0:33)     special/splash_regen.png         16385
+ 373  Regeneration_(1:30)     special/splash_regen.png         16499
+ 373  Regeneration_II_(0:16)  special/splash_regen.png         16417
+ 373  Swiftness_(2:15)        special/splash_swiftness.png     16386
+ 373  Swiftness_(6:00)        special/splash_swiftness.png     16450
+ 373  Swiftness_II_(1:07)     special/splash_swiftness.png     16418
+ 373  Fire_Resistance_(2:15)  special/splash_fireResist.png    16387
+ 373  Fire_Resistance_(2:15)  special/splash_fireResist.png    16419
+ 373  Fire_Resistance_(6:00)  special/splash_fireResist.png    16451
+ 373  Healing                 special/splash_healing.png       16389
+ 373  Healing                 special/splash_healing.png       16453
+ 373  Healing_II              special/splash_healing.png       16421
+ 373  Strength_(2:15)         special/splash_strength.png      16393
+ 373  Strength_(6:00)         special/splash_strength.png      16457
+ 373  Strength_II_(1:07)      special/splash_strength.png      16425
+ 373  Poison_(0:33)           special/splash_poison.png        16388
+ 373  Poison_(1:30)           special/splash_poison.png        16452
+ 373  Poison_II_(0:16)        special/splash_poison.png        16420
+ 373  Weakness_(1:07)         special/splash_weakness.png      16392
+ 373  Weakness_(1:07)         special/splash_weakness.png      16424
+ 373  Weakness_(3:00)         special/splash_weakness.png      16456
+ 373  Slowness_(1:07)         special/splash_slowness.png      16394
+ 373  Slowness_(1:07)         special/splash_slowness.png      16426
+ 373  Slowness_(3:00)         special/splash_slowness.png      16458
+ 373  Harming                 special/splash_harming.png       16396
+ 373  Harming                 special/splash_harming.png       16460
+ 373  Harming_II              special/splash_harming.png       16428
+ 373  Night_Vision_(3:00)     special/splash_nightvision.png   16390
+ 373  Night_Vision_(8:00)     special/splash_nightvision.png   16454
+ 373  Invisibility_(3:00)     special/splash_invis.png         16398
+ 373  Invisibility_(8:00)     special/splash_invis.png         16462
 # Unbrewable:
- 373  Regeneration_II_(0:45)  special.png  2,13   16481
- 373  Swiftness_II_(3:00)     special.png  3,13   16482
- 373  Strength_II_(3:00)      special.png  8,13   16489
- 373  Poison_II_(0:45)        special.png  5,13   16484
+ 373  Regeneration_II_(0:45)  special/splash_regen.png         16481
+ 373  Swiftness_II_(3:00)     special/splash_swiftness.png     16482
+ 373  Strength_II_(3:00)      special/splash_strength.png      16489
+ 373  Poison_II_(0:45)        special/splash_poison.png        16484
 
-#           Spawn Eggs
-# ID  NAME                   FILE         CORDS  DAMAGE
- 383  Spawn_Creeper          special.png  0,9    50
- 383  Spawn_Skeleton         special.png  1,9    51
- 383  Spawn_Spider           special.png  2,9    52
- 383  Spawn_Zombie           special.png  3,9    54
- 383  Spawn_Slime            special.png  4,9    55
- 383  Spawn_Ghast            special.png  0,10   56
- 383  Spawn_Zombie_Pigmen    special.png  1,10   57
- 383  Spawn_Enderman         special.png  2,10   58
- 383  Spawn_Cave_Spider      special.png  3,10   59
- 383  Spawn_Silverfish       special.png  4,10   60
- 383  Spawn_Blaze            special.png  0,11   61
- 383  Spawn_Magma_Cube       special.png  1,11   62
- 383  Spawn_Bat              special.png  5,9    65
- 383  Spawn_Witch            special.png  5,10   66
- 383  Spawn_Pig              special.png  2,11   90
- 383  Spawn_Sheep            special.png  3,11   91
- 383  Spawn_Cow              special.png  4,11   92
- 383  Spawn_Chicken          special.png  0,12   93
- 383  Spawn_Squid            special.png  1,12   94
- 383  Spawn_Wolf             special.png  2,12   95
- 383  Spawn_Mooshroom        special.png  3,12   96
- 383  Spawn_Villager         special.png  4,12   120
+# Spawn Eggs
+# ID  NAME                   FILE                         DAMAGE
+ 383  Spawn_Creeper          special/egg_creeper.png      50
+ 383  Spawn_Skeleton         special/egg_skeleton.png     51
+ 383  Spawn_Spider           special/egg_spider.png       52
+ 383  Spawn_Zombie           special/egg_zombie.png       54
+ 383  Spawn_Slime            special/egg_slime.png        55
+ 383  Spawn_Ghast            special/egg_ghast.png        56
+ 383  Spawn_Zombie_Pigmen    special/egg_pigman.png       57
+ 383  Spawn_Enderman         special/egg_enderman.png     58
+ 383  Spawn_Cave_Spider      special/egg_cavespider.png   59
+ 383  Spawn_Silverfish       special/egg_silverfish.png   60
+ 383  Spawn_Blaze            special/egg_blaze.png        61
+ 383  Spawn_Magma_Cube       special/egg_magma.png        62
+ 383  Spawn_Bat              special/egg_bat.png          65
+ 383  Spawn_Witch            special/egg_witch.png        66
+ 383  Spawn_Pig              special/egg_pig.png          90
+ 383  Spawn_Sheep            special/egg_sheep.png        91
+ 383  Spawn_Cow              special/egg_cow.png          92
+ 383  Spawn_Chicken          special/egg_chicken.png      93
+ 383  Spawn_Squid            special/egg_squid.png        94
+ 383  Spawn_Wolf             special/egg_wolf.png         95
+ 383  Spawn_Mooshroom        special/egg_mooshroom.png    96
+ 383  Spawn_Ocelot           special/egg_ocelot.png       98
+ 383  Spawn_Villager         special/egg_villager.png     120
 
-#           Groups
-# NAME      ICON  ITEMS
+# Groups
+# NAME       ICON  ITEMS
 # Column 1
-~ Natural    2     2,3,12,24,128,44~1,13,82,79,80,78
-~ Stone      1     1,4,48,67,44~3,139,140,98,109,44~5,44~0,45,108,44~4,101
+~ Natural    2     2,3,12,24,128,44~1,43~9,13,82,79,80,78
+~ Stone      1     1,44~0,43~0,43~8,4,48,67,44~3,139,140,98,109,44~5,45,108,44~4,101
 ~ Wood       5     17,5,53,134,135,136,126,47,85,107,20,102,30
-~ NetherEnd  87    87,88,89,348,112,114,113,372,121,122
+~ NetherEnd  87    87,88,89,348,112,114,43~6,113,372,121,122,405,406,155,156,43~7,44~7
 ~ Ores       56    16,15,14,56,129,73,21,49,42,41,57,133,22,263~0,265,266,264,388
-~ Special    54    46,52,58,54,130,61,23,25,84,116,379,380,138,146~0,321,389,323,324,330,355,65,96,390,397
+~ Special    54    46,52,58,54,146~0,130,61,23,158,25,84,116,145,379,380,137,138,321,389,323,324,330,355,65,96,390,397,401,402,51,8,9,10,11,
 ~ Plants1    81    31~1,31~2,106,111,18,81,86,91,103,110
-~ Plants2    6     295,361,362,6,296,338,37,38,39,40,32
-~ Transport  328   66,27,28,328,342,343,333,329,398
-~ Logic      331   331,76,356,69,70,72,131,77,144,33,29,123,137
+~ Plants2    6     295,361,362,6,296,338,37,38,39,40,32,127,59,141,142
+~ Transport  328   66,27,28,157,328,342,343,407,408,333,329,398
+~ Logic      331   331,76,356,69,70,72,131,77,143,33,29,123,137,147,148,149,151,152,154
 ~ Wool       35    35~0,35~8,35~7,35~15,35~14,35~12,35~1,35~4,35~5,35~13,35~11,35~3,35~9,35~10,35~2,35~6
 ~ Dye        351   351~15,351~7,351~8,351~0,351~1,351~3,351~14,351~11,351~10,351~2,351~4,351~12,351~6,351~5,351~13,351~9
+
 # Column 2
 ~ TierWood   299   298,299,300,301,269,270,271,290,268
 ~ TierStone  303   302,303,304,305,273,274,275,291,272
 ~ TierIron   307   306,307,308,309,256,257,258,292,267
 ~ TierDiam   311   310,311,312,313,277,278,279,293,276
 ~ TierGold   315   314,315,316,317,284,285,286,294,283
-~ Tools      261   50,261,262,259,346,359,345,347,395,358,325,326,327,335,384,385,386,387
-~ Food       297   260,322,282,297,360,319,320,363,364,365,366,349,350,354,357,391,396,392,393,394,400
+~ Tools      261   50,261,262,259,346,359,345,347,395,358,325,326,327,335,384,385,386,387,403
+~ Food       260   260,322,282,297,360,319,320,363,364,365,366,349,350,354,357,391,396,392,393,394,400
 ~ Items      318   280,281,318,337,336,353,339,340,332,376,377,382,381
 ~ Drops      341   344,288,334,287,352,289,367,375,341,368,369,370,371,378,399
 ~ Music      2257  2256,2257,2258,2259,2260,2261,2262,2263,2264,2265,2266,2267
-~ Potion     373   373~0,373~16,373~32,373~8192,373~8193,373~8257,373~8225,373~8289,373~8194,373~8258,373~8226,373~8290,373~8195,373~8259,373~8197,373~8229,373~8201,373~8265,373~8233,373~8297,373~8196,373~8260,373~8228,373~8292,373~8200,373~8264,373~8202,373~8266,373~8204,373~8236,373~8198,373~8262,373~8206,373~8270,373~16384,373~16385,373~16499,373~16417,373~16481,373~16386,373~16450,373~16418,373~16482,373~16387,373~16451,373~16389,373~16421,373~16393,373~16457,373~16425,373~16489,373~16388,373~16452,373~16420,373~16484,373~16392,373~16456,373~16394,373~16458,373~16396,373~16428,373~16390,373~16454,373~16398,373~16462
-~ Eggs       383   383~50,383~51,383~52,383~54,383~55,383~56,383~57,383~58,383~59,383~60,383~61,383~62,383~65,383~66,383~90,383~91,383~92,383~93,383~94,383~95,383~96,383~120
+~ Potion     373   373~0,373~16,373~32,373~8193,373~8257,373~8225,373~8289,373~8194,373~8258,373~8226,373~8290,373~8195,373~8259,373~8197,373~8229,373~8201,373~8265,373~8233,373~8297,373~8196,373~8260,373~8228,373~8292,373~8200,373~8264,373~8202,373~8266,373~8204,373~8236,373~8198,373~8262,373~8206,373~8270,373~16384,373~16385,373~16499,373~16417,373~16481,373~16386,373~16450,373~16418,373~16482,373~16387,373~16451,373~16389,373~16421,373~16393,373~16457,373~16425,373~16489,373~16388,373~16452,373~16420,373~16484,373~16392,373~16456,373~16394,373~16458,373~16396,373~16428,373~16390,373~16454,373~16398,373~16462
+~ Eggs       383   383~50,383~51,383~52,383~54,383~55,383~56,383~57,383~58,383~59,383~60,383~61,383~62,383~65,383~66,383~90,383~91,383~92,383~93,383~94,383~95,383~96,383~98,383~120
 
-#            Enchantments
-# EID  NAME                   MAX  ITEMS
-+   0  Protection             4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
-+   1  Fire_Protection        4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
-+   2  Feather_Falling        4    301,305,309,313,317
-+   3  Blast_Protection       4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
-+   4  Projectile_Protection  4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
-+   5  Respiration            3    298,302,306,310,314
-+   6  Aqua_Affinity          1    298,302,306,310,314
-+  16  Sharpness              5    268,272,267,276,283
-+  17  Smite                  5    268,272,267,276,283
-+  18  Bane_of_Arthropods     5    268,272,267,276,283
+# Enchantments
+# ID  NAME                   MAX  ITEMS
++  0  Protection             4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
++  1  Fire_Protection        4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
++  2  Feather_Falling        4    301,305,309,313,317
++  3  Blast_Protection       4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
++  4  Projectile_Protection  4    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
++  5  Respiration            3    298,302,306,310,314
++  6  Aqua_Affinity          1    298,302,306,310,314
++  7  Thorns                 3    298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317
++  16  Sharpness              5    268,272,267,276,283,403
++  17  Smite                  5    268,272,267,276,283,403
++  18  Bane_of_Arthropods     5    268,272,267,276,283,403
 +  19  Knockback              2    268,272,267,276,283
-+  20  Fire_Aspect            2    268,272,267,276,283
-+  21  Looting                3    268,272,267,276,283
++  20  Fire_Aspect            2    268,272,267,276,283,403
++  21  Looting                3    268,272,267,276,283,403
 +  32  Efficiency             5    269,270,271,273,274,275,256,257,258,277,278,279,284,285,286
-+  33  Silk_Touch             1    269,270,271,273,274,275,256,257,258,277,278,279,284,285,286
-+  34  Unbreaking             3    269,270,271,273,274,275,256,257,258,277,278,279,284,285,286
++  33  Silk_Touch             1    269,270,271,273,274,275,256,257,258,277,278,279,284,285,286,403
++  34  Unbreaking             3    269,270,271,273,274,275,256,257,258,277,278,279,284,285,286,403
 +  35  Fortune                3    269,270,271,273,274,275,256,257,258,277,278,279,284,285,286
 +  48  Power                  5    261
 +  49  Punch                  2    261
 +  50  Flame                  1    261
 +  51  Infinity               1    261
+
+
+# Custom Potion Effects
+# ID NAME              DURMAX    ITEMS      
+$ 1  Speed             32767     373
+$ 2  Slowness          32767     373
+$ 3  Haste             32767     373
+$ 4  Mining_Fatigue    32767     373
+$ 5  Strength          32767     373
+$ 6  Instant_Health    32767     373
+$ 7  Instant_Damage    32767     373
+$ 8  Jump_Boost        32767     373
+$ 9  Nausea            32767     373
+$ 10  Regeneration      32767     373
+$ 11  Resistance        32767     373
+$ 12  Fire_Resistance   32767     373
+$ 13  Water_Breathing   32767     373
+$ 14  Invisibility      32767     373
+$ 15  Blindness         32767     373
+$ 16  Night_Vision      32767     373
+$ 17  Hunger            32767     373
+$ 18  Weakness          32767     373
+$ 19  Poison            32767     373
+$ 20  Wither            32767     373
+
+
+# Fireworks Design Type
+# ID NAME
+%  0 Small_Ball
+%  1 Large_Ball
+%  2 Star-Shaped
+%  3 Creeper-Shaped
+%  4 Burst
+
+
+
+
+

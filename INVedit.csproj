@@ -19,6 +19,21 @@
     <SchemaVersion>2.0</SchemaVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,38 +67,78 @@
     <Optimize>true</Optimize>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutForm.cs" />
-    <Compile Include="AboutForm.Designer.cs">
+    <Compile Include="GUI\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
-    <Compile Include="DeleteItemSlot.cs" />
-    <Compile Include="EditForm.cs" />
-    <Compile Include="EditForm.Designer.cs">
+    <Compile Include="GUI\BookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BookForm.Designer.cs">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FireworkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FireworkForm.Designer.cs">
+      <DependentUpon>FireworkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PotionForm.Designer.cs">
+      <DependentUpon>PotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Data.cs" />
+    <Compile Include="Custom Control\DeleteItemSlot.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnchantForm.cs" />
-    <Compile Include="EnchantForm.Designer.cs">
+    <Compile Include="GUI\EnchantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\EnchantForm.Designer.cs">
       <DependentUpon>EnchantForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemDataForm.cs" />
-    <Compile Include="ItemDataForm.Designer.cs">
+    <Compile Include="GUI\ItemDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ItemDataForm.Designer.cs">
       <DependentUpon>ItemDataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.cs" />
-    <Compile Include="ItemSlot.cs" />
-    <Compile Include="MainForm.cs" />
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Data\Inventory.cs" />
+    <Compile Include="Custom Control\ItemSlot.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NBT\NbtReader.cs" />
@@ -93,32 +148,50 @@
     <Compile Include="NBT\NbtTagType.cs" />
     <Compile Include="NBT\NbtTagValue.cs" />
     <Compile Include="NBT\NbtWriter.cs" />
-    <Compile Include="Page.cs" />
-    <Compile Include="Platform.cs" />
+    <Compile Include="Custom Control\Page.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\Platform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="Data\Item.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utility\BigEndianReader.cs" />
     <Compile Include="Utility\BigEndianUtility.cs" />
     <Compile Include="Utility\BigEndianWriter.cs" />
-    <EmbeddedResource Include="AboutForm.resx">
+    <EmbeddedResource Include="GUI\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditForm.resx">
+    <EmbeddedResource Include="GUI\BookForm.resx">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FireworkForm.resx">
+      <DependentUpon>FireworkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PotionForm.resx">
+      <DependentUpon>PotionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnchantForm.resx">
+    <EmbeddedResource Include="GUI\EnchantForm.resx">
       <DependentUpon>EnchantForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItemDataForm.resx">
+    <EmbeddedResource Include="GUI\ItemDataForm.resx">
       <DependentUpon>ItemDataForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,15 +199,33 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="include" />
-    <Folder Include="NBT" />
-    <Folder Include="Utility" />
+    <None Include="Include\items.txt" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\items.png" />
-    <None Include="include\items.txt" />
-    <None Include="include\special.png" />
-    <None Include="include\terrain.png" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy /q /y "$(ProjectDir)include\*" "$(TargetDir)"</PostBuildEvent>

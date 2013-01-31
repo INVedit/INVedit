@@ -186,10 +186,13 @@ namespace Minecraft.NBT
 				return Add((NbtTag)value);
 			return Add(new NbtTagValue(value));
 		}
+
 		public virtual NbtTag Add(NbtTag item)
 		{
 			throw new NotSupportedException();
 		}
+
+
 		public NbtTag Add(string key, object value)
 		{
 			if (value is NbtTag)
