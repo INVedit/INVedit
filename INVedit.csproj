@@ -168,6 +168,7 @@
     <Compile Include="Utility\BigEndianReader.cs" />
     <Compile Include="Utility\BigEndianUtility.cs" />
     <Compile Include="Utility\BigEndianWriter.cs" />
+    <Compile Include="Zip\Zip.cs" />
     <EmbeddedResource Include="GUI\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +200,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Include\data.inv" />
     <None Include="Include\items.txt" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

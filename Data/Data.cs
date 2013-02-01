@@ -1,11 +1,19 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Resources;
+using System.Reflection;
+
+
+
+
+
+
 
 namespace INVedit
 {
@@ -34,7 +42,11 @@ namespace INVedit
 		public static int version = int.MinValue;
 		public static string mcVersion = "";
 
-		
+        
+        //Zip File Location
+        public static string zipFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + Path.DirectorySeparatorChar + "data.inv";
+
+
 		public static void Init(string path)
 		{
 			ResourceManager resources = new ResourceManager("INVedit.Resources", typeof(Data).Assembly);
@@ -241,6 +253,12 @@ namespace INVedit
 			}
 		}
 		
+
+
+
+        //Old code used to load image from file.
+        //Replaced with code to grab image from zip file.
+        /*
 		static Image LoadImage(string path)
 		{
 			if (images.ContainsKey(path)) return images[path];
@@ -250,7 +268,46 @@ namespace INVedit
 				return image;
 			}
 		}
-		
+         */
+
+
+
+        static Image LoadImage(string imgName)
+        {
+            try
+            {
+                Image rtn = null;
+                Zip zip = Zip.Open(zipFile, FileAccess.Read);
+                List<Zip.ZipFileEntry> dir = zip.ReadCentralDir();
+
+                string zipImageName;
+                foreach (Zip.ZipFileEntry entry in dir)
+                {
+                    zipImageName = Path.GetFileName(entry.FilenameInZip);
+                    if (zipImageName == imgName)
+                    {
+                        rtn = zip.ExtractImage(entry, zipImageName);
+                        break;
+                    }
+                }
+                zip.Close();
+                return rtn;
+            }
+            catch (InvalidDataException)
+            {
+                MessageBox.Show("Error: Invalid or not supported Zip file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch
+            {
+                MessageBox.Show("Error while processing source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return null;
+        }
+
+
+
+
 		internal class Items : Dictionary<short, Dictionary<short, Item>>
 		{
 			public void Add(Item item)
