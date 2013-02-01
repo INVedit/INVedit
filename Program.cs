@@ -41,12 +41,21 @@ namespace INVedit
 				}
 			} else { files.Add(arg); }
 			
-			if (!File.Exists("items.txt")) {
+			if (!File.Exists("items.txt")) 
+            {
 				MessageBox.Show("Couldn't find file 'items.txt'.\n" +
 				                "Did you unpack INVedit correctly?", "Error",
 				                MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+
+            if (!File.Exists("data.inv"))
+            {
+                MessageBox.Show("Couldn't find file 'data.inv'.\n" +
+                                "Did you unpack INVedit correctly?", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 			
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

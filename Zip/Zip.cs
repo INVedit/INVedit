@@ -181,15 +181,47 @@ namespace System.IO.Compression
 
 
 
-        public Image ExtractImage(ZipFileEntry _zfe, string _filename)
+        public Image ExtractImage(ZipFileEntry _zfe)
         {
-
             MemoryStream output = new MemoryStream();          
             bool result = ExtractFile(_zfe, output);
-            var image = Image.FromStream(output);
-            return image;
 
+            if (result)
+            {
+                var image = Image.FromStream(output);
+                output.Close();
+                return image;
+            }
+
+            output.Close();
+            return null;
         }
+
+
+
+
+        public string ExtractTextFile(ZipFileEntry _zfe)
+        {
+            MemoryStream output = new MemoryStream();
+            bool result = ExtractFile(_zfe, output);
+
+            if (result)
+            {
+                StreamReader reader = new StreamReader(output);
+                string text = reader.ReadToEnd();
+                reader.Close();
+                output.Close();
+                return text;
+            }
+
+            output.Close();
+            return string.Empty;
+        }
+
+
+
+
+
 
         public bool ExtractFile(ZipFileEntry _zfe, MemoryStream _stream)
         {
@@ -225,6 +257,47 @@ namespace System.IO.Compression
                 inStream.Dispose();
             return true;
         }
+
+
+
+        public bool ExtractFile(ZipFileEntry _zfe, Stream _stream)
+        {
+            if (!_stream.CanWrite)
+                throw new InvalidOperationException("Stream cannot be written");
+
+            byte[] signature = new byte[4];
+            this.ZipFileStream.Seek(_zfe.HeaderOffset, SeekOrigin.Begin);
+            this.ZipFileStream.Read(signature, 0, 4);
+            if (BitConverter.ToUInt32(signature, 0) != 0x04034b50)
+                return false;
+
+            Stream inStream;
+            if (_zfe.Method == Compression.Store)
+                inStream = this.ZipFileStream;
+            else if (_zfe.Method == Compression.Deflate)
+                inStream = new DeflateStream(this.ZipFileStream, CompressionMode.Decompress, true);
+            else
+                return false;
+
+            byte[] buffer = new byte[16384];
+            this.ZipFileStream.Seek(_zfe.FileOffset, SeekOrigin.Begin);
+            uint bytesPending = _zfe.FileSize;
+            while (bytesPending > 0)
+            {
+                int bytesRead = inStream.Read(buffer, 0, (int)Math.Min(bytesPending, buffer.Length));
+                _stream.Write(buffer, 0, bytesRead);
+                bytesPending -= (uint)bytesRead;
+            }
+            _stream.Flush();
+
+            if (_zfe.Method == Compression.Deflate)
+                inStream.Dispose();
+            return true;
+        }
+
+
+
+
 
           private uint GetFileOffset(uint _headerOffset)
           {

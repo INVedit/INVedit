@@ -286,7 +286,7 @@ namespace INVedit
                     zipImageName = Path.GetFileName(entry.FilenameInZip);
                     if (zipImageName == imgName)
                     {
-                        rtn = zip.ExtractImage(entry, zipImageName);
+                        rtn = zip.ExtractImage(entry);
                         break;
                     }
                 }
