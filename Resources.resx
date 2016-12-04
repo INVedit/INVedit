@@ -117,50 +117,109 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pants" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOrwAA
+        Dq8BcRFD7gAAADlJREFUOE9jGHxAUkHpPz4MVYYdEFQABHjVDD4DQHxsYlAmJkCWJIaNAUYNGCwGIGOo
+        ME5xKgAGBgCCJEj9v4JN5AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="boots" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOrwAA
+        Dq8BcRFD7gAAAENJREFUOE9jGIZAUkHpPwxDhbCKYQXomqBMnGwMMNINQJfApwnDEGym4jMABFDE0BUQ
+        1AAEGAYgY6gwBiBW3ZACDAwA/8A+LdeszPoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="chest" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOrwAA
+        Dq8BcRFD7gAAAEdJREFUOE9jGHxAUkHpPz4MVYYJCCqAAqzqiNGIDlD0DLwBIECKIVjVUmwACBBjCF41
+        w8AAEMCngBgLwACkEBuGSlMTMDAAADFJM12i3/h3AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="head" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOrwAA
+        Dq8BcRFD7gAAAEhJREFUOE9jGKZAUkHpPzYMlcYP8CkkaAgxtuBVM3gMANHICpH5yOIYAK8kFBBUg08B
+        MRZQbgAIYFNItGYYAGlAxlDhQQcYGACorytB0/qZ2QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="delete2" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAahJREFUOE+tUrtq
+        AlEQ9QPyE/kpLQULERQUtVHBQkW00ELYWmRFxPX9BBtt1M4HEkIW4wN8NdptIAl6cueyhsC6qTxwmMvM
+        uefOzqzhoej1es/FYlFglBuNxle73Uan00G3271KkvReKBQE0qhyLcrl8stgMMBkMoEoipz5fB7VapXn
+        qMbMX1S5FqVS6bJYLLBarfhlikTqgiLVmMFFlWuRyWSu5/MZp9MJ+/0em82Gk86UoxrTQJVrEY/Hkcvl
+        MB6PcTweoSgKJ50pR7VIJKJvkEwmUa/XIQgCQqEQAoEA/H4/wuEwEokEstksP6tyLaiD9Xr9++2yLPM4
+        HA7567SVYDCob0CvHA4Hfmk0GvE4n88xnU6RSqXQarXg8/n+7+CeAZHMm80mvF6vvkE0GsVut7trEIvF
+        UKvV4HQ69Q1ocLcZ/DWYzWZ8+pVKBXa7Xd/A4/F89Pv9y60LGiIZ0Ayou3Q6fTWZTIoq18JqtUpshTL9
+        smRC3G63WC6XfANsRp8Wi0VU5ffBTF4Zr263Gy6XCw6HAzabDUaj8ZtdfjObzU+q9BEwGH4AEXGqf3pD
+        SXEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="delete1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAApJJREFUOE+lk99L
+        mmEUx5PBdrOxi92MXY0xdrG/YVf7E3Y5GjkpiTIr68KgQizCoOwHlSAEKbm0TGuU0TaIbgQzyVCz8kfT
+        UpSg8rUgFvTdOc87ZaPudnHel/d5z/mc8z3nPDUA/svuPWTr6Oh4qtPpnlssljeFQuF1qVR6ubOz84LO
+        n2g0mkcVvzuBbOT0sK2trdZsNn8bHR0tDg8P34yMjNxMTU0V+aylpaW2qalJwb73Atrb23uGhoakQCCA
+        o6MjHBwcYG9vT7xDoRD6+vokrVbbw77/BC4tLSkWFxcVBoNBymQykCQJZ2dnAhKNRnF8fAySg+3tbej1
+        +usqYHl5+YHX633ldrvfuVyu9wS69Xg8YMj5+TlSqRQikQjS6TTy+TwmJycxODhIoX8AFPyWgr84nc78
+        7OysZLPZsL6+DoKBvkHnsNvtcDgcmJmZgd/vR39/vwygTI8XFhZ88XhclFsul0WpPp9PALhc1r21tSUC
+        +Zytt7dXBszPz3/Y3NwUpeZyOZyenoJGJmAVyP7+PoLBIMLhMKanp7G6uoquri4ZQGV9z2azSCaTwpH1
+        MoiBxWIRAwMD4Oq4Cu4D7QVWVlbQ2dkpA0hTmBuzsbEhMsRiMRweHgrI1dUVd1uUXgGMjY2Bmo7W1lYZ
+        YLVavyYSCTGetbW1qm6GMIB2QsBZwu7uLmg/QE1Hc3OzDJiYmPjImi4vL0VWhnEw28XFBWhhQCsMXiqu
+        kDZSTEitVssAfphMJjdDeAKsm6dwcnIimjg+Pi7A/M17wAvFo1SpVLkqwGg0Krq7uz1zc3MiMzeT9VKW
+        W7pQoHsBukBobGxEQ0PDLwr+WVdX96wKqBjp/USOWXIM1NfX/1AqlZ///n/XUPMbaoH3G0jvjjUAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="world" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAA0JJREFUOE9d0ttP
+        03ccxvFebHczu9z+i8VtbtHMmY0Epws6JQE5Dl2gg1AiYUPEQCgSNSIbGGVSYEOQHkBWSk+r9sSxVgpt
+        oaWlrYUhc9CNYdxwyzB771syiezidfFLvs/zSX55JMAOZWMn9wt9woLwh/CXsCoMyUYKPvr/+xeDLwm3
+        koG7P/biSdzBvjiOITLOYMjG7ZCSYnveZtGdbNMpU+YrOwpE6GVhrDt8hZWNKSJrAWbXptEueDHG5+gO
+        BLjpm6bPN0aL+yJ52nR/Vt/RV18s6O0KXST+xMncExfB9SDeVR/KaJD+eIzmqSiN90J8NexGG7TR4qom
+        veewaatAhN8T/l763Ylh3cjtx0bMa8OYHwboCM9zfTaCzDiFTO+iYdKIYuEaUz9rSWtPfXao9cOjyYIB
+        Y/wGnl+MqNZ1aH5z4074afIGaZycp8gwhdRqpXxOQUW8nvJYNT2+Fm7du0TK1/styYKlmV/1dC+105To
+        FNcDuBI+yixeinQevnRPIo1WkjZfRFqokLzZUmrvVjAS7eX9S3sfJQs2Yo/tnA/LkUXPoPjJgWrBQ576
+        PqW2ERojP1AQVnLAf4ZUXwmfWLMo7f+M6eUh9tbveSqRjRY8fbBup8ZfQam/mW8XreSrXOQPzpLeNkGZ
+        dYJqvxbZmIFPNVoyNeeQ9mQz/VDHntrdf0pKHPnL3tVBmgPnuRxzUD85Ska3h1xthBxtjI8VblIuOEhp
+        MHNcYeFUbyuVykJs4W7erH5jRSKGMaQNXcUQ7+L0RAN1PjW5veNkqnxk9C1yTBnh8A0XB69YyGw3Ufid
+        nGbHWTrs8mSBQ3LSkJEqhrE5mzDyhbWYclsZMpOdnB43Of0LnFA/4MjVYU5oOsVPrULamo0zpkyG/xGy
+        t4aUqT6ia3JWog+1Uec8S+2IlRLNBMW6EIUDc+S3i++BAj7/Jou2YTnnNNKt69tLPH7z0C4xDP8F82lc
+        K9/TNeNErh+nxnCfKq2HKpWF6546rJEuqtVFyXBEeH27IOngtQ92iWGYDlzet9k53k7niJ6OYRudo3Z0
+        M4MonLXJ4LPkZeG157ntguf2Nbxz7N26t8xv1+xeFg83/vNIsAm5O98j+RfcvbzmRPWSeQAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pants" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\pants.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boots" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\boots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\chest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="head" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\head.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\delete2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\delete1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="unknown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\unknown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="world" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\world.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="side" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\side.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="book" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\shield.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="steve" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\steve.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="unknown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\unknown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paypal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\paypal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fireworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\fireworks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\potion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="anvil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\Anvil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

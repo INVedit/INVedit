@@ -17,6 +17,11 @@ namespace INVedit
 			editId.Text = "";
 		}
 		
+		protected override void OnShown(EventArgs e)
+		{
+			base.OnShown(e);
+			CenterToParent();
+		}
 		
 		public void Update(ItemSlot slot)
 		{
@@ -27,7 +32,7 @@ namespace INVedit
 			
 			this.slot = slot;
 			boxEnchantments.Items.Clear();
-			editId.Text = "";
+			//editId.Text = "";
 			boxName.Items.Clear();
 			editLevel.Enabled = false;
 			editLevel.Value = 0;
@@ -43,16 +48,21 @@ namespace INVedit
 				var tag = slot.Item.tag;
 				foreach (var kvp in Data.enchantments) {
 					var enchantment = kvp.Value;
-					if (boxAllow.Checked || enchantment.items.Contains((short)tag["id"]))
+					if (boxAllow.Checked || enchantment.items.Contains((string)tag["id"]))
 						boxName.Items.Add(enchantment);
 				}
-				
+
+                boxName.SelectedIndex = 0;
+                boxName.Text = boxName.SelectedIndex.ToString();
+
+
+
 				enchantments.Clear();
 				if (tag.Contains("tag") && tag["tag"].Contains("ench"))
 					foreach (var ench in tag["tag"]["ench"]) {
 					short id = (short)ench["id"];
 					if (enchantments.ContainsKey(id))
-						MessageBox.Show("Duplicate enchantment with ID '"+slot+"' discarded.",
+						MessageBox.Show("Duplicate enchantment with ID '" + slot + "' discarded.",
 						                "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					string name;
 					if (Data.enchantments.ContainsKey(id))
@@ -70,11 +80,6 @@ namespace INVedit
 			boxName.SelectedIndexChanged += BoxNameSelectedIndexChanged;
 			editLevel.ValueChanged += EditLevelValueChanged;
 		}
-
-
-
-
-
 		
 		Data.Enchantment lastEnchantment = null;
 		void SelectEnchantment(short id)
@@ -95,11 +100,12 @@ namespace INVedit
 			boxEnchantments.SelectedItems.Clear();
 			if (enchantments.ContainsKey(id))
 				enchantments[id].Item2.Selected = true;
-			editId.Value = id; editId.Text = id.ToString();
+            //Fix Below Cannot be 1
+			editId.Value = 1; editId.Text = id.ToString();
 			if (lastEnchantment != null)
 				boxName.Items.Remove(lastEnchantment);
 			if (enchantment == null) {
-				lastEnchantment = new Data.Enchantment(id, "Unknown enchantment " + id, 0, new List<short>());
+				lastEnchantment = new Data.Enchantment(id, "Unknown enchantment " + id, 0, new List<string>());
 				boxName.SelectedIndex = boxName.Items.Add(lastEnchantment);
 			} else if (!boxName.Items.Contains(enchantment))
 				boxName.SelectedIndex = boxName.Items.Add(enchantment);
@@ -107,8 +113,7 @@ namespace INVedit
 			
 			editLevel.Enabled = boxAllow.Checked || (enchantment != null && enchantment.items.Contains(slot.Item.ID) &&
 			                                         (tag == null || (short)tag["lvl"] >= 0 && (short)tag["lvl"] <= enchantment.max));
-			
-            bool allow = boxAllow.Checked || enchantment == null || (tag != null && ((short)tag["lvl"] < 0 || (short)tag["lvl"] > enchantment.max));
+			bool allow = boxAllow.Checked || enchantment == null || (tag != null && ((short)tag["lvl"] < 0 || (short)tag["lvl"] > enchantment.max));
 			editLevel.Minimum = allow ? -32768 : 0;
 			editLevel.Maximum = allow ? (short)32767 : enchantment.max;
 			editLevel.Value = (tag != null) ? (short)tag["lvl"] : (short)0;
@@ -118,12 +123,10 @@ namespace INVedit
 			boxName.SelectedIndexChanged += BoxNameSelectedIndexChanged;
 			editLevel.ValueChanged += EditLevelValueChanged;
 		}
-
-
-
-
-
-		void DeselectEnchantment()
+		
+        
+        
+        void DeselectEnchantment()
 		{
 			boxEnchantments.ItemSelectionChanged -= BoxEnchantmentsItemSelectionChanged;
 			editId.ValueChanged -= EditIdValueChanged;
@@ -142,9 +145,10 @@ namespace INVedit
 			boxName.SelectedIndexChanged += BoxNameSelectedIndexChanged;
 			editLevel.ValueChanged += EditLevelValueChanged;
 		}
-
-
-		void ChangeLevel(short level)
+		
+        
+        
+        void ChangeLevel(short level)
 		{
 			boxEnchantments.ItemSelectionChanged -= BoxEnchantmentsItemSelectionChanged;
 			editId.ValueChanged -= EditIdValueChanged;
@@ -153,110 +157,43 @@ namespace INVedit
 			
 			editLevel.Value = level;
 			var enchantment = (Data.Enchantment)boxName.SelectedItem;
-
-			if (level != 0) 
-            {
-
-                NbtTag tag = null;
-
-                if (slot.Item.ID == 403) //Enchanted Book
-                {
-
-                    if (!slot.Item.tag.Contains("tag"))
-                        slot.Item.tag.Add("tag", NbtTag.CreateCompound());
-
-                    if (!slot.Item.tag["tag"].Contains("StoredEnchantments"))
-                        slot.Item.tag["tag"].Add("StoredEnchantments", NbtTag.CreateList(NbtTagType.Compound));
-
-                    foreach (var ench in slot.Item.tag["tag"]["StoredEnchantments"])
-                        if ((short)ench["id"] == enchantment.id) { tag = ench; break; }
-
-                    if (tag == null)
-                    {
-                        tag = NbtTag.CreateCompound("id", enchantment.id, "lvl", level);
-
-                        slot.Item.tag["tag"]["StoredEnchantments"].Add(tag);
-
-                        var listItem = new ListViewItem(new string[] { enchantment.name, editLevel.Value.ToString() });
-                        listItem.Tag = enchantment.id;
-                        boxEnchantments.Items.Add(listItem);
-                        listItem.Selected = true;
-                        enchantments.Add(enchantment.id, Tuple.Create(tag, listItem));
-                    }
-                    else
-                    {
-                        tag["lvl"].Value = level;
-                        foreach (ListViewItem item in boxEnchantments.Items)
-                            if ((short)item.Tag == enchantment.id)
-                                item.SubItems[1].Text = editLevel.Value.ToString();
-                    }
-                }
-                else //Any other item.
-                {
-                    if (!slot.Item.tag.Contains("tag"))
-                        slot.Item.tag.Add("tag", NbtTag.CreateCompound());
-                    
-                    if (!slot.Item.tag["tag"].Contains("ench"))
-                        slot.Item.tag["tag"].Add("ench", NbtTag.CreateList(NbtTagType.Compound));
-                    
-                    foreach (var ench in slot.Item.tag["tag"]["ench"])
-                        if ((short)ench["id"] == enchantment.id) { tag = ench; break; }
-
-                    if (tag == null)
-                    {
-                        tag = NbtTag.CreateCompound(
-                            "id", enchantment.id,
-                            "lvl", level);
-                        slot.Item.tag["tag"]["ench"].Add(tag);
-                        var listItem = new ListViewItem(new string[] { enchantment.name, editLevel.Value.ToString() });
-                        listItem.Tag = enchantment.id;
-                        boxEnchantments.Items.Add(listItem);
-                        listItem.Selected = true;
-                        enchantments.Add(enchantment.id, Tuple.Create(tag, listItem));
-                    }
-                    else
-                    {
-                        tag["lvl"].Value = level;
-                        foreach (ListViewItem item in boxEnchantments.Items)
-                            if ((short)item.Tag == enchantment.id)
-                                item.SubItems[1].Text = editLevel.Value.ToString();
-                    }
-
-
-                }
-
+			if (level != 0) {
+				if (!slot.Item.tag.Contains("tag"))
+					slot.Item.tag.Add("tag", NbtTag.CreateCompound());
+				if (!slot.Item.tag["tag"].Contains("ench"))
+					slot.Item.tag["tag"].Add("ench", NbtTag.CreateList(NbtTagType.Compound));
+				NbtTag tag = null;
+				foreach (var ench in slot.Item.tag["tag"]["ench"])
+					if ((short)ench["id"] == enchantment.id) { tag = ench; break; }
+				if (tag == null) {
+					tag = NbtTag.CreateCompound(
+						"id", enchantment.id,
+						"lvl", level);
+					slot.Item.tag["tag"]["ench"].Add(tag);
+					var listItem = new ListViewItem(new string[]{ enchantment.name, editLevel.Value.ToString() });
+					listItem.Tag = enchantment.id;
+					boxEnchantments.Items.Add(listItem);
+					listItem.Selected = true;
+					enchantments.Add(enchantment.id, Tuple.Create(tag, listItem));
+				} else {
+					tag["lvl"].Value = level;
+					foreach (ListViewItem item in boxEnchantments.Items)
+						if ((short)item.Tag == enchantment.id)
+							item.SubItems[1].Text = editLevel.Value.ToString();
+				}
 			} else {
-
-                NbtTag tag = null;
-                if (slot.Item.ID == 403) //Enchanted Book
-                {
-                    foreach (var ench in slot.Item.tag["tag"]["StoredEnchantments"])
-                        if ((short)ench["id"] == enchantment.id) { tag = ench; break; }
-                    tag.Remove();
-                    foreach (ListViewItem item in boxEnchantments.Items)
-                        if ((short)item.Tag == enchantment.id) { item.Remove(); break; }
-                    if (slot.Item.tag["tag"]["StoredEnchantments"].Count == 0)
-                        slot.Item.tag["tag"]["StoredEnchantments"].Remove();
-                    if (slot.Item.tag["tag"].Count == 0)
-                        slot.Item.tag["tag"].Remove();
-                    enchantments.Remove(enchantment.id);
-
-                }
-                else //Any other item.
-                {
-                    foreach (var ench in slot.Item.tag["tag"]["ench"])
-                        if ((short)ench["id"] == enchantment.id) { tag = ench; break; }
-                    tag.Remove();
-                    foreach (ListViewItem item in boxEnchantments.Items)
-                        if ((short)item.Tag == enchantment.id) { item.Remove(); break; }
-                    if (slot.Item.tag["tag"]["ench"].Count == 0)
-                        slot.Item.tag["tag"]["ench"].Remove();
-                    if (slot.Item.tag["tag"].Count == 0)
-                        slot.Item.tag["tag"].Remove();
-                    enchantments.Remove(enchantment.id);
-                }
+				NbtTag tag = null;
+				foreach (var ench in slot.Item.tag["tag"]["ench"])
+					if ((short)ench["id"] == enchantment.id) { tag = ench; break; }
+				tag.Remove();
+				foreach (ListViewItem item in boxEnchantments.Items)
+					if ((short)item.Tag == enchantment.id) { item.Remove(); break; }
+				if (slot.Item.tag["tag"]["ench"].Count == 0)
+					slot.Item.tag["tag"]["ench"].Remove();
+				if (slot.Item.tag["tag"].Count == 0)
+					slot.Item.tag["tag"].Remove();
+				enchantments.Remove(enchantment.id);
 			}
-
 			slot.CallChanged();
 			
 			boxEnchantments.ItemSelectionChanged += BoxEnchantmentsItemSelectionChanged;
@@ -267,7 +204,7 @@ namespace INVedit
 		
 		void EditIdValueChanged(object sender, EventArgs e)
 		{
-			SelectEnchantment((short)editId.Value);
+			//SelectEnchantment((string)editId.Value);
 		}
 		void BoxNameSelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -291,8 +228,9 @@ namespace INVedit
 			if (slot == null || slot.Item == null) return;
 			
 			Data.Enchantment enchantment = null;
-			if (Data.enchantments.ContainsKey((short)editId.Value))
-				enchantment = Data.enchantments[(short)editId.Value];
+			
+            //if (Data.enchantments.ContainsKey((short)editId.Value))
+				//enchantment = Data.enchantments[(short)editId.Value];
 			
 			editId.Enabled = boxAllow.Checked;
 			

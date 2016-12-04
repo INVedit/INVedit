@@ -7,14 +7,11 @@ using System.Resources;
 using System.Net;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 
 using Minecraft.NBT;
 
 namespace INVedit
 {
-
-    
 	public partial class MainForm : Form
 	{
 		static string appdata;
@@ -28,10 +25,8 @@ namespace INVedit
 		}
 		
 		EnchantForm enchantForm = null;
-        PotionForm potionForm = null;
 		EditForm editForm = null;
 		ItemDataForm itemDataForm = null;
-        FireworkForm fireworkForm = null;
 		List<CheckBox> groups = new List<CheckBox>();
 		
 		string[][] servers = new string[][]{
@@ -44,26 +39,25 @@ namespace INVedit
 		int current;
 		int currentServer;
 		int serversChecked;
-
-
+		
 		public MainForm(string[] files)
 		{
 			InitializeComponent();
 
-
-			Data.Init("items.txt");
+            Data.Init("data.xml");
 			
 			labelVersion.Text = Data.mcVersion;
 			
 			boxItems.LargeImageList = Data.list;
 			boxItems.ItemDrag += ItemDrag;
-
+			
 			foreach (Data.Group group in Data.groups.Values) {
 				CheckBox box = new CheckBox();
 				box.Size = new Size(26, 26);
-				box.Location = new Point(Width-205 + (groups.Count / 12) * 27, 29 + (groups.Count % 12) * 27);
+				//box.Location = new Point(Width-205 + (groups.Count / 12) * 27, 29 + (groups.Count % 12) * 27);
+                box.Location = new Point(491, 31);
 				box.ImageList = Data.list;
-				box.ImageIndex = group.imageIndex;
+                box.ImageIndex = group.imageIndex; //Fix this Image Problem
 				box.Appearance = Appearance.Button;
 				box.Checked = true;
 				box.Tag = group;
@@ -96,19 +90,17 @@ namespace INVedit
 				page.file = info.FullName;
 				if (info.Name == "level.dat") { page.Text = info.Directory.Name; }
 				else { page.Text = info.Name; }
-				Text = "INVedit - "+page.Text;
+				Text = "INVedit 2.0 - "+page.Text;
 				page.changed = false;
 				btnSave.Enabled = true;
 				btnCloseTab.Enabled = true;
 				btnReload.Enabled = true;
 				NbtTag tag = NbtTag.Load(file);
-				if (tag.Type == NbtTagType.Compound && tag.Contains("Data")) { tag = tag["Data"]; }
-                //if (tag.Type == NbtTagType.Compound && tag.Contains("GameRules")) { tag = tag["GameRules"]; }
-                if (tag.Type == NbtTagType.Compound && tag.Contains("Player")) { tag = tag["Player"]; }
-				if (tag.Type == NbtTagType.Compound && tag.Contains("Inventory")) { tag = tag["Inventory"]; }
+				if (tag.Type==NbtTagType.Compound && tag.Contains("Data")) { tag = tag["Data"]; }
+				if (tag.Type==NbtTagType.Compound && tag.Contains("Player")) { tag = tag["Player"]; }
+				if (tag.Type==NbtTagType.Compound && tag.Contains("Inventory")) { tag = tag["Inventory"]; }
 				if (tag.Name != "Inventory") { throw new Exception("Can't find Inventory tag."); }
 				Inventory.Load(tag, page.slots);
-               
 			} catch (Exception ex) { MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 		}
 		
@@ -146,15 +138,12 @@ namespace INVedit
 				root.Save(page.file);
 				if (info.Name == "level.dat") { page.Text = info.Directory.Name; }
 				else { page.Text = info.Name; }
-				Text = "INVedit - "+page.Text;
+				Text = "INVedit 2.0 - "+page.Text;
 				page.changed = false;
 				btnReload.Enabled = true;
 			} catch (Exception ex) { MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 		}
 		
-
-
-
 		protected override void OnDragEnter(DragEventArgs e) {
 			if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
 				string[] files = ((string[])e.Data.GetData(DataFormats.FileDrop));
@@ -162,13 +151,9 @@ namespace INVedit
 					FileInfo info = new FileInfo(file);
 					if (info.Extension.ToLower() == ".inv" || info.Extension.ToLower() == ".dat")
 						e.Effect = DragDropEffects.Copy;
-                   
 				}
 			}
 		}
-
-
-
 		protected override void OnDragDrop(DragEventArgs e) {
 			OnDragEnter(e);
 			BringToFront();
@@ -176,16 +161,8 @@ namespace INVedit
 			string[] files = ((string[])e.Data.GetData(DataFormats.FileDrop));
 			foreach (string file in files)
 				if (File.Exists(file)) Open(file);
-            
 		}
-
-
-        void OnDragMove(ItemDragEventArgs e)
-        {
-
-            Console.WriteLine("Moving");
-        }
-
+		
 		void UpdateItems()
 		{
 			boxItems.BeginUpdate();
@@ -195,8 +172,9 @@ namespace INVedit
 					foreach (Data.Item item in ((Data.Group)box.Tag).items)
 						boxItems.Items.Add(new ListViewItem(item.name, item.imageIndex){ Tag = new Item(item.id, 0, 0, item.damage) });
 			} else {
-				short id;
-				if (short.TryParse(boxSearch.Text, out id)) {
+				string id;
+                id = "";
+				if (boxSearch.Text != "") {
 					if (Data.items.ContainsKey(id))
 						foreach (Data.Item item in Data.items[id].Values)
 							boxItems.Items.Add(new ListViewItem(item.name, item.imageIndex){ Tag = new Item(item.id, 0, 0, item.damage) });
@@ -256,23 +234,10 @@ namespace INVedit
 		
 		void ItemDrag(object sender, ItemDragEventArgs e)
 		{
-
-            if (e.Button == MouseButtons.Right) //Drag Stack amount
-            {
-                Item item = (Item)((ListViewItem)e.Item).Tag;
-                item = new Item(item.ID, item.Preferred, 0, item.Damage);
-                DoDragDrop(item, DragDropEffects.All | DragDropEffects.Move);
-            }
-            else if (e.Button == MouseButtons.Left) //Drag 1 Item
-            {
-                Item item = (Item)((ListViewItem)e.Item).Tag;
-                item = new Item(item.ID, 1, 0, item.Damage);
-                DoDragDrop(item, DragDropEffects.All | DragDropEffects.Move);
-
-            }
-
-
-
+			if (e.Button != MouseButtons.Left) return;
+			Item item = (Item)((ListViewItem)e.Item).Tag;
+			item = new Item(item.ID, item.Preferred, 0, item.Damage);
+			DoDragDrop(item, DragDropEffects.Copy | DragDropEffects.Move);
 		}
 		
 		void BtnNewClick(object sender, EventArgs e)
@@ -281,7 +246,7 @@ namespace INVedit
 			page.Changed += Change;
 			Change(null);
 			page.Text = "unnamed.inv";
-			Text = "INVedit - unnamed.inv";
+			Text = "INVedit 2.0 - unnamed.inv";
 			tabControl.TabPages.Add(page);
 			tabControl.SelectedTab = page;
 			btnSave.Enabled = true;
@@ -435,7 +400,7 @@ namespace INVedit
 		void BtnOpenDropDownOpening(object sender, EventArgs e)
 		{
 			btnOpen.DropDownItems.Clear();
-			ResourceManager resources = new ResourceManager("INVedit.Resources", GetType().Assembly);
+			ResourceManager resources = new ResourceManager("INVedit.Properties.Resources", GetType().Assembly);
 			Image world = (Image)resources.GetObject("world");
 			DirectoryInfo dirs = new DirectoryInfo(appdata+"/saves");
 			if (dirs.Exists) foreach (DirectoryInfo dir in dirs.GetDirectories()) {
@@ -454,7 +419,7 @@ namespace INVedit
 		void BtnSaveDropDownOpening(object sender, EventArgs e)
 		{
 			btnSave.DropDownItems.Clear();
-			ResourceManager resources = new ResourceManager("INVedit.Resources", GetType().Assembly);
+			ResourceManager resources = new ResourceManager("INVedit.Properties.Resources", GetType().Assembly);
 			Image world = (Image)resources.GetObject("world");
 			DirectoryInfo dirs = new DirectoryInfo(appdata+"/saves");
 			if (dirs.Exists) foreach (DirectoryInfo dir in dirs.GetDirectories()) {
@@ -569,28 +534,14 @@ namespace INVedit
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Load a new Inventory at startup.
-            //btnNew.PerformClick();
-        }
-
-        private void btnPotionData_Click(object sender, EventArgs e)
-        {
-            btnPotion.Enabled = false;
-            potionForm = new PotionForm();
-            potionForm.Closed += delegate
-            {
-                btnPotion.Enabled = true;
-                potionForm = null;
-            };
-            if (tabControl.SelectedTab != null)
-                potionForm.Update(((Page)tabControl.SelectedTab).selected);
-            potionForm.Show(this);
+            //GUI.DebugForm debug = new GUI.DebugForm();
+            //debug.Show();
         }
 
         private void btnFirework_Click(object sender, EventArgs e)
         {
             btnFirework.Enabled = false;
-            fireworkForm = new FireworkForm();
+            FireworkForm fireworkForm = new FireworkForm();
             fireworkForm.Closed += delegate
             {
                 btnFirework.Enabled = true;
@@ -601,44 +552,25 @@ namespace INVedit
             fireworkForm.Show(this);
         }
 
-        //UnComment and Enable DrawMode = Owner Drawn
-        //To draw an X on Each Tab
-        /*
-        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        private void btnPotion_Click(object sender, EventArgs e)
         {
-            Font textFontBold = new Font("Arial", 8, FontStyle.Bold);
-            Pen blackPen = new Pen(Color.Black, 1);
-            e.Graphics.DrawString("X", textFontBold, Brushes.DarkRed, e.Bounds.Right - 20, e.Bounds.Top + 4);
-            e.Graphics.DrawImage(INVedit.Resources.close, e.Bounds.Right - 20, e.Bounds.Top + 4, 10,10);
-            e.Graphics.DrawRectangle(blackPen, e.Bounds.Right - 21, e.Bounds.Top + 4, 12, 12);
-            e.Graphics.DrawString(this.tabControl.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
-            e.DrawFocusRectangle();
+
+            btnPotion.Enabled = false;
+            GUI.PotionForm potionForm = new GUI.PotionForm();
+            potionForm.Closed += delegate
+            {
+                btnPotion.Enabled = true;
+                potionForm = null;
+            };
+            if (tabControl.SelectedTab != null)
+                potionForm.Update(((Page)tabControl.SelectedTab).selected);
+            potionForm.Show(this);
+
         }
 
-        private void tabControl_MouseDown(object sender, MouseEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            //Looping through the controls.
-            for (int i = 0; i < this.tabControl.TabPages.Count; i++)
-            {
-                Rectangle r = tabControl.GetTabRect(i);
-                //Getting the position of the "x" mark.
-                Rectangle closeButton = new Rectangle(r.Right - 20, r.Top + 4, 9, 7);
-                if (closeButton.Contains(e.Location))
-                {
-                    if (MessageBox.Show("Would you like to Close this Tab?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        this.tabControl.TabPages.RemoveAt(i);
-                        break;
-                    }
-
-                }
-            }
-        }         
-        */
-
-
-
-
-
+            Refresh();
+        }
 	}
 }

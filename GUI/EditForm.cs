@@ -63,7 +63,7 @@ namespace INVedit
             btnWhite.Enabled = (item != null);
 
 			
-			if (item != null && (item.ID == 386 || item.ID == 387)) {
+			if (item != null && (item.ID == "minecraft:writable_book" || item.ID == "minecraft:written_book")) {
 				string title = "";
 				string author = "";
 				int pages = 0;
@@ -71,7 +71,7 @@ namespace INVedit
 				
 				if (!item.tag.Contains("tag")) item.tag["tag"] = NbtTag.CreateCompound();
 				NbtTag tag = item.tag["tag"];
-				if (item.ID == 387) {
+				if (item.ID == "minecraft:written_book") {
 					if (!tag.Contains("title")) tag.Add("title", "");
 					if (!tag.Contains("author")) tag.Add("author", "");
 					title = (string)tag["title"];
@@ -83,13 +83,15 @@ namespace INVedit
 					tag["pages"].Add("");
 				page = 0;
 				pages = tag["pages"].Count;
-				pageText = ((string)tag["pages"][page]).Replace("\n", "\r\n");
-				
+				pageText = ((string)tag["pages"][page]).Replace("\\n", "\r\n");
+                pageText = pageText.Replace("{\"text\":\"",""); // {"text":"1\n2\n3\n4\n5"}
+                pageText = pageText.Replace("\"}", "");
+
 				boxTitle.Text = title;
-				boxTitle.Enabled = (item.ID == 387);
+				boxTitle.Enabled = (item.ID == "minecraft:written_book");
 				boxAuthor.Text = author;
-				boxAuthor.Enabled = (item.ID == 387);
-				boxSigned.Checked = (item.ID == 387);
+				boxAuthor.Enabled = (item.ID == "minecraft:written_book");
+				boxSigned.Checked = (item.ID == "minecraft:written_book");
 				boxSigned.Enabled = true;
 				boxText.Text = pageText;
 				boxText.Enabled = true;
@@ -177,21 +179,21 @@ namespace INVedit
 		
 		void BoxTitleTextChanged(object sender, EventArgs e)
 		{
-			if (slot.Item.ID != 387) return;
+			if (slot.Item.ID != "minecraft:written_book") return;
 			slot.Item.tag["tag"]["title"].Value = boxTitle.Text;
 			slot.CallChanged();
 		}
 		
 		void BoxAuthorTextChanged(object sender, EventArgs e)
 		{
-			if (slot.Item.ID != 387) return;
+			if (slot.Item.ID != "minecraft:written_book") return;
 			slot.Item.tag["tag"]["author"].Value = boxAuthor.Text;
 			slot.CallChanged();
 		}
 		
 		void BoxSignedCheckedChanged(object sender, EventArgs e)
 		{
-			slot.Item.ID = (short)(boxSigned.Checked ? 387 : 386);
+			slot.Item.ID = (string)(boxSigned.Checked ? "minecraft:written_book" : "minecraft:writable_book");
 			boxTitle.Enabled = boxSigned.Checked;
 			boxAuthor.Enabled = boxSigned.Checked;
 			NbtTag tag = slot.Item.tag;

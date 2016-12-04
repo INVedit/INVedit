@@ -10,7 +10,7 @@ namespace INVedit
 	public class Page : TabPage
 	{
 		static ResourceManager resources;
-		static Image head, chest, pants, boots;
+		static Image head, chest, pants, boots, shield;
 		
 		GroupBox boxInventory;
 		NumericUpDown boxDamage;
@@ -20,7 +20,7 @@ namespace INVedit
 		public string file = null;
 		public bool world = false;
 		public bool changed = false;
-		public Dictionary<byte, ItemSlot> slots = new Dictionary<byte, ItemSlot>();
+		public Dictionary<int, ItemSlot> slots = new Dictionary<int, ItemSlot>();
 		
 		public event Action<ItemSlot> Changed;
 		
@@ -29,11 +29,13 @@ namespace INVedit
 			UseVisualStyleBackColor = true;
 			
 			if (resources == null) {
-				resources = new ResourceManager("INVedit.Resources", GetType().Assembly);
+				resources = new ResourceManager("INVedit.Properties.Resources", GetType().Assembly);
 				head = (Image)resources.GetObject("head");
 				chest = (Image)resources.GetObject("chest");
 				pants = (Image)resources.GetObject("pants");
 				boots = (Image)resources.GetObject("boots");
+                shield = (Image)resources.GetObject("shield");
+
 			}
 			
 			boxInventory = new GroupBox(){ Text = "Inventory", Location = new Point(6, 6), Size = new Size(461, 285) };
@@ -59,14 +61,18 @@ namespace INVedit
 			boxCount.Enabled = false;
 			boxInventory.Controls.Add(boxCount);
 			
+            //gear
 			CreateSlot(103, 7, 19, head);
 			CreateSlot(102, 7 + 50, 19, chest);
 			CreateSlot(101, 7 + 100, 19, pants);
 			CreateSlot(100, 7 + 150, 19, boots);
-			for (int i = 0; i < 9; ++i) CreateSlot((byte)(9+i), 7 + i*50, 75);
-			for (int i = 0; i < 9; ++i) CreateSlot((byte)(18+i), 7 + i*50, 125);
-			for (int i = 0; i < 9; ++i) CreateSlot((byte)(27+i), 7 + i*50, 175);
-			for (int i = 0; i < 9; ++i) CreateSlot((byte)i, 7 + i*50, 231);
+            CreateSlot(150, 7 + 200, 19, shield); //Needs to be -106 change cast type.
+			
+            //inventory
+            for (int i = 0; i < 9; ++i) CreateSlot((byte)(9+i), 7 + i*50, 75);
+            for (int i = 0; i < 9; ++i) CreateSlot((byte)(18 + i), 7 + i * 50, 125);
+            for (int i = 0; i < 9; ++i) CreateSlot((byte)(27 + i), 7 + i * 50, 175);
+            for (int i = 0; i < 9; ++i) CreateSlot((byte)i, 7 + i * 50, 231);
 			
 			DeleteItemSlot delete = new DeleteItemSlot(
 				(Image)resources.GetObject("delete1"),
@@ -87,7 +93,7 @@ namespace INVedit
 			boxCount.ValueChanged += ValueChanged;
 		}
 		
-		void CreateSlot(byte slot, int x, int y, Image def = null)
+		void CreateSlot( int slot, int x, int y, Image def = null)
 		{
 			ItemSlot itemSlot = new ItemSlot(slot){
 				Location = new Point(x, y), Default = def, UseVisualStyleBackColor = true

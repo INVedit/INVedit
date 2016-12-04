@@ -14,8 +14,6 @@ namespace INVedit
 {
 	class Program
 	{
-
-
 		[STAThread]
 		static void Main(string[] args)
 		{
@@ -40,22 +38,14 @@ namespace INVedit
 						break;
 				}
 			} else { files.Add(arg); }
-			
-			if (!File.Exists("items.txt")) 
+
+            if (!File.Exists("data.xml"))
             {
-				MessageBox.Show("Couldn't find file 'items.txt'.\n" +
+                MessageBox.Show("Couldn't find file 'data.xml'.\n" +
 				                "Did you unpack INVedit correctly?", "Error",
 				                MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
-            if (!File.Exists("data.inv"))
-            {
-                MessageBox.Show("Couldn't find file 'data.inv'.\n" +
-                                "Did you unpack INVedit correctly?", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 			
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

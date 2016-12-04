@@ -7,12 +7,12 @@ namespace INVedit
 {
 	public static class Inventory
 	{
-		public static void Load(NbtTag inventory, Dictionary<byte, ItemSlot> slots)
+		public static void Load(NbtTag inventory, Dictionary<int, ItemSlot> slots)
 		{
 			try {
 				foreach (ItemSlot slot in slots.Values) slot.Item = null;
 				foreach (NbtTag tag in inventory) {
-					byte slot = (byte)tag["Slot"];
+					int slot = (byte)tag["Slot"];
 					byte count = (byte)tag["Count"];
 					if (count == 0) continue;
 					if (!slots.ContainsKey(slot)) {
@@ -26,7 +26,7 @@ namespace INVedit
 			} finally { foreach (ItemSlot slot in slots.Values) slot.Refresh(); }
 		}
 		
-		public static void Save(NbtTag parent, Dictionary<byte, ItemSlot> slots)
+		public static void Save(NbtTag parent, Dictionary<int, ItemSlot> slots)
 		{
 			if (parent.Contains("Inventory")) parent["Inventory"].Remove();
 			NbtTag inventory = parent.Add("Inventory", NbtTag.CreateList(NbtTagType.Compound));

@@ -37,7 +37,7 @@ namespace Minecraft.NBT
 		
 		public NbtTagList(NbtTagType type)
 		{
-			if (type < NbtTagType.Byte || type > NbtTagType.Compound)
+			if (type < NbtTagType.End || type > NbtTagType.Compound)
 				throw new ArgumentException("'"+(int)type+"' is not a valid ListType.", "type");
 			_type = type;
 		}

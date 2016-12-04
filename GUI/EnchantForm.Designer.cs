@@ -63,7 +63,7 @@ namespace INVedit
             this.boxEnchantments.Location = new System.Drawing.Point(6, 6);
             this.boxEnchantments.MultiSelect = false;
             this.boxEnchantments.Name = "boxEnchantments";
-            this.boxEnchantments.Size = new System.Drawing.Size(300, 138);
+            this.boxEnchantments.Size = new System.Drawing.Size(285, 138);
             this.boxEnchantments.TabIndex = 0;
             this.boxEnchantments.UseCompatibleStateImageBehavior = false;
             this.boxEnchantments.View = System.Windows.Forms.View.Details;
@@ -74,7 +74,7 @@ namespace INVedit
             // headerName
             // 
             this.headerName.Text = "Name";
-            this.headerName.Width = 250;
+            this.headerName.Width = 235;
             // 
             // headerLevel
             // 
@@ -89,9 +89,9 @@ namespace INVedit
             this.boxName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxName.Enabled = false;
             this.boxName.FormattingEnabled = true;
-            this.boxName.Location = new System.Drawing.Point(72, 151);
+            this.boxName.Location = new System.Drawing.Point(6, 151);
             this.boxName.Name = "boxName";
-            this.boxName.Size = new System.Drawing.Size(170, 21);
+            this.boxName.Size = new System.Drawing.Size(219, 21);
             this.boxName.TabIndex = 2;
             this.boxName.SelectedIndexChanged += new System.EventHandler(this.BoxNameSelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@ namespace INVedit
             // 
             this.editLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.editLevel.Enabled = false;
-            this.editLevel.Location = new System.Drawing.Point(246, 151);
+            this.editLevel.Location = new System.Drawing.Point(229, 151);
             this.editLevel.Name = "editLevel";
             this.editLevel.Size = new System.Drawing.Size(62, 20);
             this.editLevel.TabIndex = 3;
@@ -125,6 +125,7 @@ namespace INVedit
             this.editId.Size = new System.Drawing.Size(62, 20);
             this.editId.TabIndex = 1;
             this.editId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.editId.Visible = false;
             this.editId.ValueChanged += new System.EventHandler(this.EditIdValueChanged);
             // 
             // boxAllow
@@ -133,7 +134,7 @@ namespace INVedit
             | System.Windows.Forms.AnchorStyles.Right)));
             this.boxAllow.Location = new System.Drawing.Point(8, 176);
             this.boxAllow.Name = "boxAllow";
-            this.boxAllow.Size = new System.Drawing.Size(298, 18);
+            this.boxAllow.Size = new System.Drawing.Size(281, 18);
             this.boxAllow.TabIndex = 4;
             this.boxAllow.Text = "Allow potentially unsafe enchantments";
             this.boxAllow.UseVisualStyleBackColor = true;
@@ -143,11 +144,11 @@ namespace INVedit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 199);
+            this.ClientSize = new System.Drawing.Size(297, 199);
+            this.Controls.Add(this.boxName);
             this.Controls.Add(this.boxAllow);
             this.Controls.Add(this.editId);
             this.Controls.Add(this.editLevel);
-            this.Controls.Add(this.boxName);
             this.Controls.Add(this.boxEnchantments);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

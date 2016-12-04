@@ -56,7 +56,7 @@ namespace Minecraft.NBT
 					return NbtTag.Create(Encoding.UTF8.GetString(array));
 				case NbtTagType.List:
 					NbtTagType listType = (NbtTagType)_reader.ReadByte();
-					if (listType < NbtTagType.Byte || listType > NbtTagType.Compound)
+					if (listType < NbtTagType.End || listType > NbtTagType.Compound)
 						throw new FormatException("'"+(int)type+"' is not a valid ListType.");
 					int count = _reader.ReadInt32();
 					NbtTag list = NbtTag.CreateList(listType);

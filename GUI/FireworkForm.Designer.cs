@@ -45,6 +45,7 @@
             // 
             // boxType
             // 
+            this.boxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxType.Enabled = false;
             this.boxType.FormattingEnabled = true;
             this.boxType.Location = new System.Drawing.Point(49, 20);

@@ -40,15 +40,15 @@ namespace INVedit
             chkTrail.Checked = false;
             editFlight.Value = 3;
             boxType.SelectedIndex = 0;
-            editFlight.Enabled = (item != null && item.ID == 401);
-            boxType.Enabled = (item != null && item.ID == 401 || item.ID == 402);
-            chkFlicker.Enabled = (item != null && item.ID == 401 || item.ID == 402);
-            chkTrail.Enabled = (item != null && item.ID == 401 || item.ID == 402);
-            lvwColors.Enabled = (item != null && item.ID == 401 || item.ID == 402);
-            btnAdd.Enabled = (item != null && item.ID == 401 || item.ID == 402);
-            btnRemove.Enabled = (item != null && item.ID == 401 || item.ID == 402);
+            editFlight.Enabled = (item != null && item.ID == "minecraft:fireworks");
+            boxType.Enabled = (item != null && item.ID == "minecraft:fireworks" || item.ID == "minecraft:firework_charge");
+            chkFlicker.Enabled = (item != null && item.ID == "minecraft:fireworks" || item.ID == "minecraft:firework_charge");
+            chkTrail.Enabled = (item != null && item.ID == "minecraft:fireworks" || item.ID == "minecraft:firework_charge");
+            lvwColors.Enabled = (item != null && item.ID == "minecraft:fireworks" || item.ID == "minecraft:firework_charge");
+            btnAdd.Enabled = (item != null && item.ID == "minecraft:fireworks" || item.ID == "minecraft:firework_charge");
+            btnRemove.Enabled = (item != null && item.ID == "minecraft:fireworks" || item.ID == "minecraft:firework_charge");
 
-            if (item.ID == 401)
+            if (item.ID == "minecraft:fireworks")
             {
                 if (item != null && item.tag.Contains("tag"))
                 {
@@ -104,7 +104,7 @@ namespace INVedit
                 }
 
             }
-            else if (item.ID == 402)
+            else if (item.ID == "minecraft:firework_charge")
             {
 
                 if (item != null && item.tag.Contains("tag"))
@@ -158,7 +158,7 @@ namespace INVedit
         void ChangeFirework(byte type, byte flight, byte trail, byte flicker, int[] colors)
         {
 
-            if (slot.Item.ID == 401)
+            if (slot.Item.ID == "minecraft:fireworks")
             {
                 if (slot.Item.tag.Contains("tag"))
                 {
@@ -168,7 +168,7 @@ namespace INVedit
 
                 }
             }
-            else if (slot.Item.ID == 402)
+            else if (slot.Item.ID == "minecraft:firework_charge")
             {
                 if (slot.Item.tag.Contains("tag"))
                 {
@@ -179,7 +179,7 @@ namespace INVedit
 
             NbtTag tag = null;
 
-            if (slot.Item.ID == 401)
+            if (slot.Item.ID == "minecraft:fireworks")
             {
 
                 if (!slot.Item.tag.Contains("tag"))
@@ -195,7 +195,7 @@ namespace INVedit
                 slot.Item.tag["tag"]["Fireworks"]["Explosions"].Add(tag);
 
             }
-            else if (slot.Item.ID == 402)
+            else if (slot.Item.ID == "minecraft:firework_charge")
             {
                 if (!slot.Item.tag.Contains("tag"))
                     slot.Item.tag.Add("tag", NbtTag.CreateCompound());

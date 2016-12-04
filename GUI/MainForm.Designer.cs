@@ -83,7 +83,7 @@ namespace INVedit
             this.labelVersion});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(688, 25);
+            this.toolStrip.Size = new System.Drawing.Size(719, 25);
             this.toolStrip.TabIndex = 0;
             // 
             // btnNew
@@ -162,11 +162,10 @@ namespace INVedit
             // btnUpdate
             // 
             this.btnUpdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnUpdate.Enabled = false;
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(115, 22);
+            this.btnUpdate.Size = new System.Drawing.Size(123, 22);
             this.btnUpdate.Text = "Check for updates";
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdateClick);
@@ -177,7 +176,7 @@ namespace INVedit
             this.barUpdate.AutoSize = false;
             this.barUpdate.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
             this.barUpdate.Name = "barUpdate";
-            this.barUpdate.Size = new System.Drawing.Size(100, 21);
+            this.barUpdate.Size = new System.Drawing.Size(100, 15);
             this.barUpdate.Visible = false;
             // 
             // toolStripSeparator2
@@ -213,8 +212,7 @@ namespace INVedit
             this.btnPotion.Name = "btnPotion";
             this.btnPotion.Size = new System.Drawing.Size(23, 22);
             this.btnPotion.Text = "Potion Editor";
-            this.btnPotion.ToolTipText = "Potion Editor";
-            this.btnPotion.Click += new System.EventHandler(this.btnPotionData_Click);
+            this.btnPotion.Click += new System.EventHandler(this.btnPotion_Click);
             // 
             // btnEdit
             // 
@@ -246,22 +244,24 @@ namespace INVedit
             // tabControl
             // 
             this.tabControl.AllowDrop = true;
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControl.Location = new System.Drawing.Point(5, 29);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(481, 322);
+            this.tabControl.Size = new System.Drawing.Size(481, 376);
             this.tabControl.TabIndex = 1;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControlSelected);
             this.tabControl.DragOver += new System.Windows.Forms.DragEventHandler(this.TabControlDragOver);
             // 
             // boxItems
             // 
-            this.boxItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxItems.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.boxItems.Location = new System.Drawing.Point(518, 51);
+            this.boxItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxItems.Location = new System.Drawing.Point(549, 51);
             this.boxItems.MultiSelect = false;
             this.boxItems.Name = "boxItems";
-            this.boxItems.Size = new System.Drawing.Size(166, 300);
+            this.boxItems.Size = new System.Drawing.Size(166, 354);
             this.boxItems.TabIndex = 3;
             this.boxItems.TileSize = new System.Drawing.Size(140, 19);
             this.boxItems.UseCompatibleStateImageBehavior = false;
@@ -284,9 +284,10 @@ namespace INVedit
             // boxSearch
             // 
             this.boxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.boxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxSearch.ForeColor = System.Drawing.Color.Gray;
-            this.boxSearch.Location = new System.Drawing.Point(518, 29);
+            this.boxSearch.Location = new System.Drawing.Point(549, 29);
             this.boxSearch.Name = "boxSearch";
             this.boxSearch.Size = new System.Drawing.Size(166, 20);
             this.boxSearch.TabIndex = 2;
@@ -299,17 +300,18 @@ namespace INVedit
             // 
             this.AllowDrop = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(688, 355);
+            this.ClientSize = new System.Drawing.Size(719, 409);
             this.Controls.Add(this.boxSearch);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.boxItems);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "INVedit - Minecraft Inventory Editor";
+            this.Text = "INVedit 2.0 - Minecraft Inventory Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip.ResumeLayout(false);
@@ -338,7 +340,7 @@ namespace INVedit
 		private System.Windows.Forms.ToolStrip toolStrip;
 		private System.Windows.Forms.ToolStripSplitButton btnOpen;
 		private System.Windows.Forms.ToolStripButton btnNew;
-        private System.Windows.Forms.ToolStripButton btnPotion;
         private System.Windows.Forms.ToolStripButton btnFirework;
+        private System.Windows.Forms.ToolStripButton btnPotion;
 	}
 }

@@ -23,9 +23,6 @@ namespace INVedit
         public BookForm()
         {
             InitializeComponent();
-
-            //Have to do it this way cause some how SharpDevelop Screwed the Resources.
-            pictureBox1.Image  = INVedit.Resources.book;
         }
 
         private void BookForm_Load(object sender, EventArgs e)

@@ -1,0 +1,5 @@
+﻿1. Add Base Potion to Potions form and get the NBT tags working, allowing for Potion Color change upon adding extra effects.
+
+2.Build new items list.
+
+3.Get File reading inplace so that zip/data files are not extracted but instead read directly from included file. ie NO EXTRACTION

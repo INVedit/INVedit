@@ -9,19 +9,19 @@ namespace INVedit
 		Data.Item item {
 			get {
 				if (Data.items.ContainsKey(ID)) {
-					if (Data.items[ID].ContainsKey(Damage))
-						return Data.items[ID][Damage];
-					else return Data.items[ID][0];
+					if (Data.items[ID].ContainsKey(Damage.ToString()))
+						return Data.items[ID][Damage.ToString()];
+					else return Data.items[ID]["0"];
 				} else return null;
 			}
 		}
 		
 		public NbtTag tag;
-		public short ID { get { return (short)tag["id"]; }
+		public string ID { get { return (string)tag["id"]; }
 			set { tag["id"].Value = value; } }
 		public byte Count { get { return (byte)tag["Count"]; }
 			set { tag["Count"].Value = value; } }
-		public byte Slot { get { return (byte)tag["Slot"]; }
+		public int Slot { get { return (int)tag["Slot"]; }
 			set { tag["Slot"].Value = value; } }
 		public short Damage { get { return (short)tag["Damage"]; }
 			set { tag["Damage"].Value = value; } }
@@ -57,15 +57,15 @@ namespace INVedit
 		public bool Enchanted { get {
 				return tag.Contains("tag") && tag["tag"].Contains("ench");
 			} }
-
-        public bool Brewable { get {
+        public bool Brewable  { get {
                 return Data.brewable.Contains(ID);
             } }
-        public bool Brewed { get {
+        public bool Brewed    { get {
                 return tag.Contains("tag") && tag["tag"].Contains("CustomPotionEffects");
-            } }		
+            } }	
+
 		public Item(NbtTag tag) { this.tag = tag.Clone(); }
-		public Item(short id, byte count = 1, byte slot = 0, short damage = 0)
+		public Item(string id, byte count = 1, int slot = 0, short damage = 0)
 		{
 			tag = NbtTag.CreateCompound(
 				"id", id,

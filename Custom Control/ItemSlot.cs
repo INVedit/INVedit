@@ -5,27 +5,25 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-
 namespace INVedit
 {
 	public class ItemSlot : CheckBox
 	{
-		static Font font1 = new Font(FontFamily.GenericMonospace, 8, FontStyle.Bold);
-		static Font font2 = new Font(FontFamily.GenericMonospace, 10, FontStyle.Bold);
+		static Font font1 = new Font(FontFamily.GenericMonospace, 6, FontStyle.Bold); //8
+		static Font font2 = new Font(FontFamily.GenericMonospace, 6, FontStyle.Bold); //10
 		protected static Item other = null;
 		
 		protected static event Action DragBegin = delegate {  };
 		protected static event Action DragEnd = delegate {  };
 		
 		public bool Selected { get; set; }
-		public byte Slot { get; set; }
+		public int Slot { get; set; }
 		public Item Item { get; set; }
 		public Image Default { get; set; }
 		
 		public event Action<bool> Changed = delegate {  };
-
-
-		public ItemSlot(byte slot)
+		
+		public ItemSlot(int slot)
 		{
 			Slot = slot;
 			
@@ -40,20 +38,33 @@ namespace INVedit
 		
 		protected override void OnMouseDown(MouseEventArgs e)
 		{
-			if (e.Button != MouseButtons.Left) return;
-			LostFocus += OnLostFocus;
-			if (Item == null) return;
-			Checked = true;
+            LostFocus += OnLostFocus;
+            if (Item == null) return;
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    
+                    //Debug Testing
+                    Console.WriteLine(Item.tag.ToString());
 
-
-            DragBegin();
-			other = Item;
-			DragDropEffects final = DoDragDrop(Item, DragDropEffects.Copy | DragDropEffects.Move | DragDropEffects.Link);
-			DragEnd();
-
-			var old = Item;
-			if (final == DragDropEffects.Move) { Item = other; Changed(false); }
-			Checked = false;
+                    Checked = true;
+                    DragBegin();
+                    other = Item;
+                    DragDropEffects final = DoDragDrop(Item, DragDropEffects.Copy | DragDropEffects.Move | DragDropEffects.Link);
+                    DragEnd();
+                    if (final == DragDropEffects.Move) { Item = other; Changed(false); }
+                    Checked = false;
+                    break;
+                case MouseButtons.Right:
+                    // if ItemSlot contains item, set amount to max/damage to zero
+                    Item.Count = Item.Stack;
+                    if (!Item.Alternative) Item.Damage = 0;
+                    // todo: update Damage, Count
+                    break;
+                default:
+                    break;
+            }
+            Refresh();
 		}
 		
 		void OnLostFocus(object sender, EventArgs e)
@@ -133,6 +144,7 @@ namespace INVedit
 		
 		protected override void OnMouseWheel(MouseEventArgs e)
 		{
+            /*
 			if (Item == null) return;
 			int count = (((Control.ModifierKeys & Keys.Control) == Keys.Control) ? 4 : 1) * Math.Sign(e.Delta);
 			if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift) {
@@ -140,9 +152,9 @@ namespace INVedit
 				if (Item.MaxDamage > 0)
 					Item.Damage = (short)Math.Min(Math.Max((int)Item.Damage + Math.Max(Math.Abs(count*(int)Item.MaxDamage/32), 1) * -Math.Sign(count), 0), Item.MaxDamage);
 				else if (Item.Alternative) {
-					Dictionary<short, Data.Item> items = Data.items[Item.ID];
-					List<short> list = new List<short>(items.Keys);
-					int index = list.IndexOf(Item.Damage);
+					Dictionary<string, Data.Item> items = Data.items[Item.ID];
+					List<string> list = new List<string>(items.Keys);
+					int index = list.IndexOf(Item.Damage.ToString());
 					if (index == -1) return;
 					if (count > 0) { if (index < list.Count-1) Item.Damage = list[index+1]; }
 					else { if (index > 0) Item.Damage = list[index-1]; }
@@ -156,8 +168,10 @@ namespace INVedit
 			}
 			Changed(false);
 			Refresh();
+             */
 		}
-		
+
+        //int test = 20;
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			base.OnPaint(e);
@@ -171,9 +185,16 @@ namespace INVedit
 			
 			g.InterpolationMode = InterpolationMode.NearestNeighbor;
 			g.PixelOffsetMode = PixelOffsetMode.Half;
-			
+
+
+            //if (test == 180) { test = 20;}
+            //test = test + 10; ;
+
+
+
+            //Enchanted
 			if (Item != null && Item.Enchanted)
-				g.FillRectangle(new SolidBrush(Color.FromArgb(80, Color.SlateBlue)), 5, 5, Width-10, Height-10);
+				g.FillRectangle(new SolidBrush(Color.FromArgb(120, Color.SlateBlue)), 5, 5, Width-10, Height-10);
 			
 			g.DrawImage(image, ClientSize.Width/2-16, ClientSize.Height/2-16, 32, 32);
 			
@@ -209,7 +230,7 @@ namespace INVedit
 				DrawString2(g, color2, 4, 2, value);
 			}
 			if (Data.items.ContainsKey(Item.ID) &&
-			    !Data.items[Item.ID].ContainsKey(Item.Damage)) {
+			    !Data.items[Item.ID].ContainsKey(Item.Damage.ToString())) {
 				if (Item.Damage > 0 && Item.Damage <= Item.MaxDamage && Item.MaxDamage > 0) {
 					Rectangle rect = new Rectangle(5, ClientSize.Height-8, ClientSize.Width-10, 3);
 					g.FillRectangle(new SolidBrush(Color.Black), rect);

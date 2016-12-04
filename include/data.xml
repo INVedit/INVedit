@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Config>
+  <Version>
+    <VConfig>0</VConfig>
+    <VMinecraft>Minecraft v1.11</VMinecraft>
+  </Version>
+	<Item>
+		<ID>minecraft:stone</ID>
+		<Name>Stone</Name>
+		<Damage>0</Damage>
+		<Stack>64</Stack>
+		<MaxStack>64</MaxStack>
+		<MaxToolDmg>0</MaxToolDmg>
+		<Image>stone.png</Image>
+	</Item>
+	<Item>
+		<ID>minecraft:stone</ID>
+		<Name>Granite</Name>
+		<Damage>1</Damage>
+		<Stack>64</Stack>
+		<MaxStack>64</MaxStack>
+		<MaxToolDmg>0</MaxToolDmg>
+		<Image>stone_granite.png</Image>
+	</Item>
+	<Item>
+		<ID>minecraft:stone</ID>
+		<Name>Polished Granite</Name>
+		<Damage>2</Damage>
+		<Stack>64</Stack>
+		<MaxStack>64</MaxStack>
+		<MaxToolDmg>0</MaxToolDmg>
+		<Image>stone_granite_smooth.png</Image>
+	</Item>
+	<Item>
+		<ID>minecraft:stone</ID>
+		<Name>Diorite</Name>
+		<Damage>3</Damage>
+		<Stack>64</Stack>
+		<MaxStack>64</MaxStack>
+		<MaxToolDmg>0</MaxToolDmg>
+		<Image>stone_diorite.png</Image>
+	</Item>
+	<Item>
+		<ID>minecraft:stone</ID>
+		<Name>Polished Diorite</Name>
+		<Damage>4</Damage>
+		<Stack>64</Stack>
+		<MaxStack>64</MaxStack>
+		<MaxToolDmg>0</MaxToolDmg>
+		<Image>stone_diorite_smooth.png</Image>
+	</Item>
+	
+	
+	
+	<Group>
+		<Name>Natural</Name>
+		<Icon>minecraft:stone</Icon>
+		<Damage>2</Damage>
+		<Items>minecraft:stone:0,minecraft:stone:1,minecraft:stone:2,minecraft:stone:3,minecraft:stone:4</Items>
+	</Group>
+	
+	
+	
+	<Enchantment>
+		<ID>0</ID>
+		<Name>Protection</Name>
+		<MaxLvl>4</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>1</ID>
+		<Name>Fire Protection</Name>
+		<MaxLvl>4</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>2</ID>
+		<Name>Feather Falling</Name>
+		<MaxLvl>4</MaxLvl>
+		<Items>minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>3</ID>
+		<Name>Blast Protection</Name>
+		<MaxLvl>4</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>4</ID>
+		<Name>Projectile Protection</Name>
+		<MaxLvl>4</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>5</ID>
+		<Name>Respiration</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>6</ID>
+		<Name>Aqua Affinity</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>7</ID>
+		<Name>Thorns</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>8</ID>
+		<Name>Depth Strider</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>		
+	<Enchantment>
+		<ID>9</ID>
+		<Name>Frost Walker</Name>
+		<MaxLvl>2</MaxLvl>
+		<Items>minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots</Items>
+	</Enchantment>		
+	<Enchantment>
+		<ID>10</ID>
+		<Name>Curse of binding</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots,minecraft:elytra</Items>
+	</Enchantment>		
+	<Enchantment>
+		<ID>16</ID>
+		<Name>Sharpness</Name>
+		<MaxLvl>5</MaxLvl>
+		<Items>minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:stick</Items>
+	</Enchantment>		
+	<Enchantment>
+		<ID>17</ID>
+		<Name>Smite</Name>
+		<MaxLvl>5</MaxLvl>
+		<Items>minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:stick</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>18</ID>
+		<Name>Bane of Anthropods</Name>
+		<MaxLvl>5</MaxLvl>
+		<Items>minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:stick</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>19</ID>
+		<Name>Knockback</Name>
+		<MaxLvl>2</MaxLvl>
+		<Items>minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:stick</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>20</ID>
+		<Name>Fire Aspect</Name>
+		<MaxLvl>2</MaxLvl>
+		<Items>minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:stick</Items>
+	</Enchantment>	
+	<Enchantment>
+		<ID>21</ID>
+		<Name>Looting</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:stick</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>32</ID>
+		<Name>Efficiency</Name>
+		<MaxLvl>5</MaxLvl>
+		<Items>minecraft:wooden_pickaxe,minecraft:stone_pickaxe,minecraft:iron_pickaxe,minecraft:diamond_pickaxe,minecraft:golden_pickaxe,minecraft:wooden_shovel,minecraft:stone_shovel,minecraft:iron_shovel,minecraft:diamond_shovel,minecraft:golden_shovel,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:shears</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>33</ID>
+		<Name>Silk Touch</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:wooden_pickaxe,minecraft:stone_pickaxe,minecraft:iron_pickaxe,minecraft:diamond_pickaxe,minecraft:golden_pickaxe,minecraft:wooden_shovel,minecraft:stone_shovel,minecraft:iron_shovel,minecraft:diamond_shovel,minecraft:golden_shovel,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>34</ID>
+		<Name>Unbreaking</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:wooden_pickaxe,minecraft:stone_pickaxe,minecraft:iron_pickaxe,minecraft:diamond_pickaxe,minecraft:golden_pickaxe,minecraft:wooden_shovel,minecraft:stone_shovel,minecraft:iron_shovel,minecraft:diamond_shovel,minecraft:golden_shovel,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots,minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:wooden_hoe,minecraft:stone_hoe,minecraft:iron_hoe,minecraft:diamond_hoe,minecraft:golden_hoe,minecraft:bow,minecraft:shears,minecraft:flint_and_steel,minecraft:carrot_on_a_stick,minecraft:shield,minecraft:elytra</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>35</ID>
+		<Name>Fortune</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:wooden_pickaxe,minecraft:stone_pickaxe,minecraft:iron_pickaxe,minecraft:diamond_pickaxe,minecraft:golden_pickaxe,minecraft:wooden_shovel,minecraft:stone_shovel,minecraft:iron_shovel,minecraft:diamond_shovel,minecraft:golden_shovel,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>48</ID>
+		<Name>Power</Name>
+		<MaxLvl>5</MaxLvl>
+		<Items>minecraft:bow</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>49</ID>
+		<Name>Punch</Name>
+		<MaxLvl>2</MaxLvl>
+		<Items>minecraft:bow</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>50</ID>
+		<Name>Flame</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:bow</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>51</ID>
+		<Name>Infinity</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:bow</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>61</ID>
+		<Name>Luck of the Sea</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:fishing_rod</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>62</ID>
+		<Name>Lure</Name>
+		<MaxLvl>3</MaxLvl>
+		<Items>minecraft:fishing_rod</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>70</ID>
+		<Name>Mending</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:wooden_pickaxe,minecraft:stone_pickaxe,minecraft:iron_pickaxe,minecraft:diamond_pickaxe,minecraft:golden_pickaxe,minecraft:wooden_shovel,minecraft:stone_shovel,minecraft:iron_shovel,minecraft:diamond_shovel,minecraft:golden_shovel,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots,minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:wooden_hoe,minecraft:stone_hoe,minecraft:iron_hoe,minecraft:diamond_hoe,minecraft:golden_hoe,minecraft:bow,minecraft:shears,minecraft:flint_and_steel,minecraft:carrot_on_a_stick,minecraft:shield,minecraft:elytra</Items>
+	</Enchantment>
+	<Enchantment>
+		<ID>71</ID>
+		<Name>Curse of Vanishing</Name>
+		<MaxLvl>1</MaxLvl>
+		<Items>minecraft:wooden_pickaxe,minecraft:stone_pickaxe,minecraft:iron_pickaxe,minecraft:diamond_pickaxe,minecraft:golden_pickaxe,minecraft:wooden_shovel,minecraft:stone_shovel,minecraft:iron_shovel,minecraft:diamond_shovel,minecraft:golden_shovel,minecraft:wooden_axe,minecraft:stone_axe,minecraft:iron_axe,minecraft:diamond_axe,minecraft:golden_axe,minecraft:leather_helmet,minecraft:chainmail_helmet,minecraft:iron_helmet,minecraft:diamond_helmet,minecraft:golden_helmet,minecraft:leather_chestplate,minecraft:chainmail_chestplate,minecraft:iron_chestplate,minecraft:diamond_chestplate,minecraft:golden_chestplate,minecraft:leather_leggings,minecraft:chainmail_leggings,minecraft:iron_leggings,minecraft:diamond_leggings,minecraft:golden_leggings,minecraft:leather_boots,minecraft:chainmail_boots,minecraft:iron_boots,minecraft:diamond_boots,minecraft:golden_boots,minecraft:wooden_sword,minecraft:stone_sword,minecraft:iron_sword,minecraft:diamond_sword,minecraft:golden_sword,minecraft:wooden_hoe,minecraft:stone_hoe,minecraft:iron_hoe,minecraft:diamond_hoe,minecraft:golden_hoe,minecraft:bow,minecraft:shears,minecraft:flint_and_steel,minecraft:carrot_on_a_stick,minecraft:shield,minecraft:elytra</Items>
+	</Enchantment>
+
+
+
+	
+	
+	
+	
+	<PotionEffect>
+		<ID>1</ID>
+		<Name>Speed</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>2</ID>
+		<Name>Slowness</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>	
+	<PotionEffect>
+		<ID>3</ID>
+		<Name>Haste</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>	
+	<PotionEffect>
+		<ID>4</ID>
+		<Name>Mining Fatigue</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>5</ID>
+		<Name>Strength</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>6</ID>
+		<Name>Instant Health</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>7</ID>
+		<Name>Instant Damage</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>8</ID>
+		<Name>Jump Boost</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>9</ID>
+		<Name>Nausea</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>10</ID>
+		<Name>Regeneration</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>11</ID>
+		<Name>Resistance</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>12</ID>
+		<Name>Fire Resistance</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>13</ID>
+		<Name>Water Breathing</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>14</ID>
+		<Name>Invisibility</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>15</ID>
+		<Name>Blindness</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>16</ID>
+		<Name>Night Vision</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>17</ID>
+		<Name>Hunger</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>18</ID>
+		<Name>Weakness</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>19</ID>
+		<Name>Poison</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>20</ID>
+		<Name>Wither</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>21</ID>
+		<Name>Health Boost</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>22</ID>
+		<Name>Absorption</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>23</ID>
+		<Name>Saturation</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>24</ID>
+		<Name>Glowing</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+	<PotionEffect>
+		<ID>25</ID>
+		<Name>Levitation</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>	
+	<PotionEffect>
+		<ID>26</ID>
+		<Name>Luck</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>	
+	<PotionEffect>
+		<ID>27</ID>
+		<Name>Bad Luck</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>	
+	<PotionEffect>
+		<ID>28</ID>
+		<Name>Unknown</Name>
+		<DurMax>32767</DurMax>
+		<Items>minecraft:potion</Items>
+	</PotionEffect>
+
+
+
+	
+	<FireworkType>
+		<ID>0</ID>
+		<Name>Small Ball</Name>
+	</FireworkType>
+	<FireworkType>
+		<ID>1</ID>
+		<Name>Large Ball</Name>
+	</FireworkType>
+	<FireworkType>
+		<ID>2</ID>
+		<Name>Star Shaped</Name>
+	</FireworkType>
+	<FireworkType>
+		<ID>3</ID>
+		<Name>Creeper Shaped</Name>
+	</FireworkType>
+	<FireworkType>
+		<ID>4</ID>
+		<Name>Burst</Name>
+	</FireworkType>	
+</Config>
